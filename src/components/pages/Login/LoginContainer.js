@@ -4,6 +4,8 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import { config } from '../../../utils/oktaConfig';
 
+import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
+
 const LoginContainer = () => {
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
@@ -17,11 +19,11 @@ const LoginContainer = () => {
       },
       features: { registration: false },
       // turning this feature on allows your widget to use Okta for user registration
-      logo: 'path-to-your-logo',
+      logo: cityspireLogo,
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': 'Welcome to Labs Basic SPA Please sign in',
+          'primaryauth.title': 'Welcome to Cityspire',
           // change title for your app
         },
       },
