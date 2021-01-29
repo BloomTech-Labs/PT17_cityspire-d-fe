@@ -5,11 +5,13 @@ import { Layout, Avatar, Button, Image, Space } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
 import MapboxGLMap from '../../common/MapboxGLMap';
+import SearchForm from '../../common/SearchForm';
 
 const { Header, Content, Footer } = Layout;
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
+
   return (
     <Layout className="layout">
       <Header
@@ -31,11 +33,12 @@ function RenderHomePage(props) {
         </Space>
       </Header>
 
-      <Content>
+      <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
+        <SearchForm />
         <MapboxGLMap />
       </Content>
 
-      <Footer style={{ textAlign: 'center' }}>
+      <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
     </Layout>
