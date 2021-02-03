@@ -4,8 +4,9 @@ import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
 import { Layout, Avatar, Button, Image, Space } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
+import MapboxGLMap from '../../common/MapboxGLMap';
 
-const { Header, Footer } = Layout;
+const { Header, Content, Footer } = Layout;
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
@@ -29,6 +30,11 @@ function RenderHomePage(props) {
           <Button onClick={() => authService.logout()}>Logout</Button>
         </Space>
       </Header>
+
+      <Content>
+        <MapboxGLMap />
+      </Content>
+
       <Footer style={{ textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
