@@ -6,7 +6,7 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 # cityspire-fe
 
-You can find the deployed project at [g.cityspire.dev](https://www.g.cityspire.dev/).
+You can find the deployed project at [g.cityspire.dev](https://g.cityspire.dev/).
 
 ## Contributors
 

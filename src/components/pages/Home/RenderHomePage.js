@@ -7,11 +7,14 @@ import map from '../../../assets/imgs/map2.jpg';
 import { Layout, Avatar, Button, Image, Space, Input, Form } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
+import MapboxGLMap from '../../common/MapboxGLMap';
+import SearchForm from '../../common/SearchForm';
 
-const { Header, Footer } = Layout;
+const { Header, Content, Footer } = Layout;
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
+
   return (
     <Layout className="layout">
       <Header
@@ -103,7 +106,13 @@ function RenderHomePage(props) {
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
-      <Footer style={{ textAlign: 'center' }}>
+
+      <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
+        <SearchForm />
+        <MapboxGLMap />
+      </Content>
+
+      <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
     </Layout>
