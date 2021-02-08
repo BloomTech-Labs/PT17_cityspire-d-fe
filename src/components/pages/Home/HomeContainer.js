@@ -2,8 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import RenderHomePage from './RenderHomePage';
+import { Spin } from 'antd';
 
-function HomeContainer({ LoadingComponent }) {
+const spinStyle = {
+  textAlign: 'center',
+  marginTop: '25%',
+};
+
+function HomeContainer() {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -31,7 +37,9 @@ function HomeContainer({ LoadingComponent }) {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching user profile..." />
+        <div style={spinStyle}>
+          <Spin tip="Loading..." size="large"></Spin>
+        </div>
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderHomePage userInfo={userInfo} authService={authService} />
