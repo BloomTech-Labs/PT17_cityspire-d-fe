@@ -3,16 +3,31 @@ import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
 import cities from '../../../assets/imgs/cities.png';
 import citylife from '../../../assets/imgs/citylife.jpg';
 import map from '../../../assets/imgs/map2.jpg';
+import city1 from '../../../assets/imgs/city1.png';
+import city2 from '../../../assets/imgs/city2.png';
+import city3 from '../../../assets/imgs/city3.png';
+import city4 from '../../../assets/imgs/city4.png';
+import city5 from '../../../assets/imgs/city5.png';
 
-import { Layout, Avatar, Button, Image, Space } from 'antd';
+import { Layout, Avatar, Button, Image, Space, Carousel } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
 import MapboxGLMap from '../../common/MapboxGLMap';
 import SearchForm from '../../common/SearchForm';
 
 import StatesContainer from '../USstates/StatesContainer';
+import '../Home/home.css';
 
 const { Header, Content, Footer } = Layout;
+
+const contentStyle = {
+  height: '300px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: 'f0f2f5',
+  margin: '2%',
+};
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
@@ -38,8 +53,8 @@ function RenderHomePage(props) {
           <Button onClick={() => authService.logout()}>Logout</Button>
         </Space>
       </Header>
-
       <Image
+        class="cities"
         preview={false}
         src={cities}
         style={{ width: '100%', height: '30vh', marginBottom: '3rem' }}
@@ -56,17 +71,42 @@ function RenderHomePage(props) {
       >
         {' '}
       </Space>
-
       <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
         <SearchForm />
         <MapboxGLMap />
       </Content>
-
       <StatesContainer
         style={{ color: 'blue', height: '20vh', margin: '2rem' }}
       />
-      {/* <StatesList style={{ color: 'blue', height: '20vh', margin: '2rem' }}/> */}
-
+      <Carousel autoplay>
+        <div>
+          <h3 style={contentStyle}>
+            {' '}
+            <Image class="Carousel" preview={false} src={city1} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={city2} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={city3} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={city4} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={city5} />
+          </h3>
+        </div>
+      </Carousel>
+      ,
       <Space size="large" align="center">
         <p
           style={{
@@ -90,13 +130,11 @@ function RenderHomePage(props) {
           }}
         />{' '}
       </Space>
-
       <Image
         preview={false}
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
-
       <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
