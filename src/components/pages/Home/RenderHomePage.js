@@ -4,7 +4,6 @@ import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
 import { Layout, Avatar, Button, Image, Space } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
-import MapboxGLMap from '../../common/MapboxGLMap';
 import SearchForm from '../../common/SearchForm';
 
 const { Header, Content, Footer } = Layout;
@@ -35,7 +34,6 @@ function RenderHomePage(props) {
 
       <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
         <SearchForm />
-        <MapboxGLMap />
       </Content>
 
       <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
