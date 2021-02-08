@@ -11,6 +11,7 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import 'antd/dist/antd.less';
 import 'antd/dist/antd.css';
 
+import { CitySearchResultsPage } from './components/pages/CitySearchResults';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { HomePage } from './components/pages/Home';
@@ -55,6 +56,7 @@ function App() {
 
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/datavis" component={ExampleDataViz} />
+        <SecureRoute path="/city-name" component={CitySearchResultsPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
