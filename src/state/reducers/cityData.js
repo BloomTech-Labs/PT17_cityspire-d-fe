@@ -7,7 +7,7 @@ import {
 const initialState = {
   isFetching: false,
   error: '',
-  cityData: [],
+  city: {},
 };
 export const cityDataReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,7 +20,7 @@ export const cityDataReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        cityData: action.payload,
+        city: action.payload,
         error: '',
       };
     case FETCHING_CITY_ERROR:
