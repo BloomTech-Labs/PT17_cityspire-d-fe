@@ -9,7 +9,7 @@ import SearchForm from '../../common/SearchForm';
 const { Header, Content, Footer } = Layout;
 
 function RenderHomePage(props) {
-  const { userInfo, authService } = props;
+  const { userInfo, authService, fetchCityData } = props;
 
   return (
     <Layout className="layout">
@@ -33,7 +33,7 @@ function RenderHomePage(props) {
       </Header>
 
       <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
-        <SearchForm />
+        <SearchForm fetchCityData={fetchCityData} />
       </Content>
 
       <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
