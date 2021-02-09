@@ -1,1 +1,1 @@
-export { default as CitySearchResultsPage } from './CitySearchResultsContianer';
+export { default as CitySearchResultsPage } from './CitySearchResultsContainer';
