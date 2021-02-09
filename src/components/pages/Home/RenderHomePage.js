@@ -15,17 +15,16 @@ import { UserOutlined } from '@ant-design/icons';
 import MapboxGLMap from '../../common/MapboxGLMap';
 import SearchForm from '../../common/SearchForm';
 
-import StatesContainer from '../USstates/StatesContainer';
 import '../Home/home.css';
 
 const { Header, Content, Footer } = Layout;
 
 const contentStyle = {
-  height: '300px',
+  height: '255px',
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
-  background: 'f0f2f5',
+  background: '#f0f2f5',
   margin: '2%',
 };
 
@@ -75,9 +74,6 @@ function RenderHomePage(props) {
         <SearchForm />
         <MapboxGLMap />
       </Content>
-      <StatesContainer
-        style={{ color: 'blue', height: '20vh', margin: '2rem' }}
-      />
       <Carousel autoplay>
         <div>
           <h3 style={contentStyle}>
