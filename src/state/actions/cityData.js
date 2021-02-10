@@ -8,8 +8,6 @@ export const fetchCityData = cityInfo => {
   return async dispatch => {
     dispatch({ type: FETCHING_CITY_START });
 
-    console.log(cityInfo);
-
     try {
       const res = await axios.post(
         `http://cityscape-203.eba-ijacxhm2.us-east-1.elasticbeanstalk.com/api/get_data`,
