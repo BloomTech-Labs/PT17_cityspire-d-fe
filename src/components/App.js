@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchCityData } from '../state/actions';
 import { Route, useHistory, Switch } from 'react-router-dom';
 
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
@@ -16,7 +14,7 @@ import { ExampleDataViz } from './pages/ExampleDataViz';
 import { config } from '../utils/oktaConfig';
 import { LoadingComponent } from './common';
 
-const App = ({ cityData, fetchCityData }) => {
+const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
@@ -36,31 +34,17 @@ const App = ({ cityData, fetchCityData }) => {
         <SecureRoute
           path="/"
           exact
-          component={() => (
-            <HomePage
-              LoadingComponent={LoadingComponent}
-              fetchCityData={fetchCityData}
-            />
-          )}
+          component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
         <SecureRoute path="/example-list" component={ExampleListPage} />
 
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/datavis" component={ExampleDataViz} />
-        <SecureRoute component={CitySearchResultsPage} cityData={cityData} />
+        <SecureRoute component={CitySearchResultsPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
   );
 };
 
-const mapStateToProps = state => {
-  console.log(state.cityData.city);
-  return {
-    isFetching: state.cityData.isFetching,
-    error: state.cityData.error,
-    cityData: state.cityData.city,
-  };
-};
-
-export default connect(mapStateToProps, { fetchCityData })(App);
+export default App;
