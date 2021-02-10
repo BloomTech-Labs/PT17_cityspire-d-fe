@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { fetchCityData } from '../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Input, Typography } from 'antd';
 
@@ -46,7 +48,7 @@ const SearchForm = ({ fetchCityData }) => {
 
   const onSubmit = () => {
     fetchCityData(cityAndState);
-    push(`/${cityAndState.city}`);
+    push(`/${cityAndState.city}-${cityAndState.state}`);
     setSearchValue('');
   };
 
@@ -70,4 +72,4 @@ const SearchForm = ({ fetchCityData }) => {
   );
 };
 
-export default SearchForm;
+export default connect(null, { fetchCityData })(SearchForm);
