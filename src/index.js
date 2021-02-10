@@ -9,6 +9,7 @@ import {
 
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import 'antd/dist/antd.less';
+import 'antd/dist/antd.css';
 
 import { CitySearchResultsPage } from './components/pages/CitySearchResults';
 import { NotFoundPage } from './components/pages/NotFound';
