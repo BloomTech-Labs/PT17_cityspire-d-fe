@@ -9,7 +9,7 @@
     "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "@okta/okta-react": "^3.0.2",
     "@okta/okta-signin-widget": "^4.1.2",
-    "antd": "^4.4.3",
+    "antd": "^4.12.0",
     "axios": "^0.21.1",
     "craco-less": "^1.17.0",
     "mapbox-gl": "^2.0.1",

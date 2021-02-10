@@ -1,7 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MapboxGLMap from '../../common/MapboxGLMap';
-import { Statistic, Row, Col, PageHeader, Card } from 'antd';
+
+import {
+  Statistic,
+  Row,
+  Col,
+  PageHeader,
+  Card,
+  Layout,
+  Image,
+  Carousel,
+} from 'antd';
 
 import {
   DollarCircleTwoTone,
@@ -11,6 +21,13 @@ import {
   CarTwoTone,
 } from '@ant-design/icons';
 
+import citylife from '../../../assets/imgs/citylife.jpg';
+import AL from '../../../assets/imgs/AL.png';
+import AK from '../../../assets/imgs/AK.png';
+import AZ from '../../../assets/imgs/AZ.png';
+import AR from '../../../assets/imgs/AR.png';
+
+const { Footer } = Layout;
 const routes = [
   {
     path: '/',
@@ -26,16 +43,21 @@ const StatisticStyle = {
   fontSize: '1.85rem',
 };
 
+const contentStyle = {
+  height: '395px',
+  color: '#fff',
+  lineHeight: '30px',
+  textAlign: 'center',
+  background: '#f0f2f5',
+  margin: '1%',
+};
+
 const RenderCitySearchResults = ({ cityData }) => {
   return (
     <>
-      <PageHeader
-        className="site-page-header"
-        // title={cityData.city}
-        breadcrumb={{ routes }}
-      />
+      <PageHeader className="site-page-header" breadcrumb={{ routes }} />
       <MapboxGLMap />
-      <Row style={{ marginTop: '28rem', marginBottom: '24rem' }} wrap="true">
+      <Row style={{ marginTop: '28rem', marginBottom: '5rem' }} wrap="true">
         <Col lg={18} offset={2}>
           <h1>Cityspire City Data</h1>
         </Col>
@@ -92,6 +114,39 @@ const RenderCitySearchResults = ({ cityData }) => {
           </Card>
         </Col>
       </Row>
+
+      <Carousel autoplay style={{ marginTop: '2%', marginBottom: '5rem' }}>
+        <div>
+          <h3 style={contentStyle}>
+            {' '}
+            <Image class="Carousel" preview={false} src={AL} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={AK} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={AZ} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={AR} />
+          </h3>
+        </div>
+      </Carousel>
+
+      <Image
+        preview={false}
+        src={citylife}
+        style={{ width: '100%', height: '100px' }}
+      />
+      <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
+        Cityspire ©2021 Created by Labspt15-cityspire-g
+      </Footer>
     </>
   );
 };

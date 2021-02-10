@@ -56,7 +56,7 @@ const SearchForm = ({ fetchCityData }) => {
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          <Title style={TitleStyle}>h1. Ant Design</Title>
+          <Title style={TitleStyle}></Title>
           <Search
             placeholder="Ex. New York, NY"
             allowClear
