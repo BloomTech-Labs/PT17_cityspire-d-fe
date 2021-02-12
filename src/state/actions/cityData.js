@@ -19,7 +19,7 @@ export const fetchCityData = cityInfo => {
         payload: res.data,
       });
     } catch (err) {
-      dispatch({ type: FETCHING_CITY_ERROR, payload: err });
+      dispatch({ type: FETCHING_CITY_ERROR, payload: err.detail });
     }
   };
 };
