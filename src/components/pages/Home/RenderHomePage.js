@@ -100,7 +100,7 @@ function RenderHomePage(props) {
           </h3>
         </div>
       </Carousel>
-      ,
+
       <Space size="large" align="center">
         <p
           style={{
