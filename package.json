@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "craco-less": "^1.17.0",
     "mapbox-gl": "^2.0.1",
+    "moxios": "^0.4.0",
     "plotly.js": "^1.54.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,6 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
