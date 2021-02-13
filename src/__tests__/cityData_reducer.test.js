@@ -4,6 +4,7 @@ import {
   FETCHING_CITY_SUCCESS,
   FETCHING_CITY_ERROR,
 } from '../state/actions/cityData';
+
 const initialState = {
   isFetching: false,
   error: '',
