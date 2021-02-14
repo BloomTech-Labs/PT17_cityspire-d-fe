@@ -28,7 +28,7 @@ const contentStyle = {
 };
 
 function RenderHomePage(props) {
-  const { userInfo, authService, fetchCityData } = props;
+  const { userInfo, authService } = props;
 
   return (
     <Layout className="layout">
@@ -70,7 +70,7 @@ function RenderHomePage(props) {
         {' '}
       </Space>
       <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
-        <SearchForm fetchCityData={fetchCityData} />
+        <SearchForm />
       </Content>
       <Carousel autoplay>
         <div>
