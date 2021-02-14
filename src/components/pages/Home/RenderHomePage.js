@@ -74,6 +74,32 @@ function RenderHomePage(props) {
         <SearchForm />
         <MapboxGLMap />
       </Content>
+      <h7
+        style={{
+          fontSize: '3rem',
+          fontFamily: 'Hachi Maru Pop, cursive',
+          marginTop: '-7%',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          position: 'relative',
+          backgroundColor: 'lightgrey',
+          border: '2px dotted navy',
+          textShadow: '1px 1px 10px navy',
+        }}
+      >
+        Aspire to your dream home with <br />{' '}
+        <strong
+          style={{
+            fontSize: '5rem',
+            marginTop: '-2%',
+            textDecoration: 'underline',
+          }}
+        >
+          CitySpire
+        </strong>
+      </h7>
       <Carousel autoplay>
         <div>
           <h3 style={contentStyle}>
@@ -110,11 +136,12 @@ function RenderHomePage(props) {
             justifyContent: 'center',
             margin: '2%',
             textAlign: 'center',
-            fontSize: '1.5rem',
+            fontSize: '2rem',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Searching for the perfect dream home but don't know where to start?
+          You're in the right place! Let CitySpire lead you to the desires of
+          your heart!
         </p>
         <Image
           preview={false}

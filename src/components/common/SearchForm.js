@@ -11,9 +11,9 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '32vw',
+  width: '55vw',
   minWidth: '24rem',
-  maxWidth: '40rem',
+  maxWidth: '80rem',
   padding: '1rem',
 };
 
