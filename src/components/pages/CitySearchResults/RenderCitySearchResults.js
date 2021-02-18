@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import MapboxGLMap from '../../common/MapboxGLMap';
 
 import {
@@ -11,6 +10,7 @@ import {
   Layout,
   Image,
   Carousel,
+  Button,
 } from 'antd';
 
 import {
@@ -28,16 +28,6 @@ import AZ from '../../../assets/imgs/AZ.png';
 import AR from '../../../assets/imgs/AR.png';
 
 const { Footer } = Layout;
-const routes = [
-  {
-    path: '/',
-    breadcrumbName: 'Home',
-  },
-  {
-    path: 'first',
-    breadcrumbName: 'City Name',
-  },
-];
 
 const StatisticStyle = {
   fontSize: '1.85rem',
@@ -52,16 +42,50 @@ const contentStyle = {
   margin: '1%',
 };
 
-const RenderCitySearchResults = ({ cityData }) => {
+const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
+  const routes = [
+    {
+      path: '/',
+      breadcrumbName: 'Home',
+    },
+    {
+      path: 'first',
+      breadcrumbName: `${cityData.city}`,
+    },
+  ];
+
   return (
     <>
-      <PageHeader className="site-page-header" breadcrumb={{ routes }} />
+      <Row style={{ padding: '1rem' }}>
+        <Col lg={8}>
+          <PageHeader className="site-page-header" breadcrumb={{ routes }} />
+        </Col>
+        <Col
+          style={{ position: 'absolute', right: '2.5rem', paddingTop: '4px' }}
+        >
+          <Button
+            type="primary"
+            shape="round"
+            size="large"
+            onClick={() => handleOnSave()}
+          >
+            Save City
+          </Button>
+        </Col>
+      </Row>
+
       <MapboxGLMap />
-      <Row style={{ marginTop: '28rem', marginBottom: '5rem' }} wrap="true">
-        <Col lg={18} offset={2}>
+      <Row
+        style={{
+          margin: '28rem auto 5rem',
+          padding: '0 5vw',
+        }}
+        wrap="true"
+      >
+        <Col xs={24}>
           <h1>Cityspire City Data</h1>
         </Col>
-        <Col lg={4} offset={2}>
+        <Col xs={24} sm={8} md={4}>
           <Card>
             <Statistic
               title="Rental Price"
@@ -71,7 +95,7 @@ const RenderCitySearchResults = ({ cityData }) => {
             />
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col xs={24} sm={8} md={4}>
           <Card>
             <Statistic
               title="Crime"
@@ -81,7 +105,7 @@ const RenderCitySearchResults = ({ cityData }) => {
             />
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col xs={24} sm={8} md={4}>
           <Card>
             <Statistic
               title="Pollution"
@@ -91,7 +115,7 @@ const RenderCitySearchResults = ({ cityData }) => {
             />
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col xs={24} sm={8} md={6}>
           <Card>
             <Statistic
               title="Walkability"
@@ -102,7 +126,7 @@ const RenderCitySearchResults = ({ cityData }) => {
             />
           </Card>
         </Col>
-        <Col lg={4}>
+        <Col xs={24} sm={8} md={6}>
           <Card>
             <Statistic
               title="Livability"
@@ -151,12 +175,4 @@ const RenderCitySearchResults = ({ cityData }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isFetching: state.cityData.isFetching,
-    error: state.cityData.error,
-    cityData: state.cityData.city,
-  };
-};
-
-export default connect(mapStateToProps)(RenderCitySearchResults);
+export default RenderCitySearchResults;
