@@ -25,6 +25,7 @@ function HomeContainer({ fetchCityData }) {
         // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
         if (isSubscribed) {
           setUserInfo(info);
+          localStorage.setItem('token', info.sub);
         }
       })
       .catch(err => {
