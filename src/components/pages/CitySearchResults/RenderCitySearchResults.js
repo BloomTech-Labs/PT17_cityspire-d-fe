@@ -74,7 +74,7 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
         </Col>
       </Row>
 
-      <MapboxGLMap />
+      <MapboxGLMap lat={-73.935242} long={40.73061} />
       <Row
         style={{
           margin: '28rem auto 5rem',
