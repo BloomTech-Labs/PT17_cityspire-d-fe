@@ -12,7 +12,6 @@ import city5 from '../../../assets/imgs/city5.png';
 import { Layout, Avatar, Button, Image, Space, Carousel } from 'antd';
 
 import { UserOutlined } from '@ant-design/icons';
-import MapboxGLMap from '../../common/MapboxGLMap';
 import SearchForm from '../../common/SearchForm';
 
 import '../Home/home.css';
@@ -72,7 +71,6 @@ function RenderHomePage(props) {
       </Space>
       <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
         <SearchForm />
-        <MapboxGLMap />
       </Content>
       <h7
         style={{
@@ -128,7 +126,7 @@ function RenderHomePage(props) {
           </h3>
         </div>
       </Carousel>
-      ,
+
       <Space size="large" align="center">
         <p
           style={{

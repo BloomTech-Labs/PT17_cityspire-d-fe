@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { fetchCityData } from '../../state/actions';
+import { useHistory } from 'react-router-dom';
 import { Row, Col, Input, Typography } from 'antd';
 
 const ColStyle = {
@@ -22,8 +25,20 @@ const TitleStyle = {
   fontSize: '4rem',
   textShadow: '0 4px 10px rgba(0,0,0,.5)',
 };
-const SearchForm = () => {
+const SearchForm = ({ fetchCityData }) => {
+  const { push } = useHistory();
+
   const [searchValue, setSearchValue] = useState('');
+
+  // Split search value right by the common
+  const splitSearchValue = searchValue.split(', ');
+
+  // Set the split value to city and state
+  const cityAndState = {
+    city: splitSearchValue[0],
+    state: splitSearchValue[1],
+  };
+
   const { Search } = Input;
   const { Title } = Typography;
 
@@ -31,10 +46,9 @@ const SearchForm = () => {
     setSearchValue(e.target.value);
   };
 
-  const onSearch = e => {
-    e.preventDefault();
-    // Will eventually utilize redux action here to
-    // send searchValue to backend API
+  const onSubmit = () => {
+    fetchCityData(cityAndState);
+    push(`/${cityAndState.city}-${cityAndState.state}`);
     setSearchValue('');
   };
 
@@ -44,12 +58,12 @@ const SearchForm = () => {
         <div>
           <Title style={TitleStyle}></Title>
           <Search
-            placeholder="Search for Apartments"
+            placeholder="Ex. New York, NY"
             allowClear
-            onSearch={onSearch}
+            onSearch={() => onSubmit()}
             size="large"
             style={SearchStyle}
-            value={searchValue}
+            value={searchValue.city}
             onChange={handleChange}
           />
         </div>
@@ -58,4 +72,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default connect(null, { fetchCityData })(SearchForm);
