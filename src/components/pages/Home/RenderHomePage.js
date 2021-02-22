@@ -14,8 +14,6 @@ import { Layout, Avatar, Button, Image, Space, Carousel } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import SearchForm from '../../common/SearchForm';
 
-import '../Home/home.css';
-
 const { Header, Content, Footer } = Layout;
 
 const contentStyle = {
@@ -69,9 +67,6 @@ function RenderHomePage(props) {
       >
         {' '}
       </Space>
-      <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
-        <SearchForm />
-      </Content>
       <h7
         style={{
           fontSize: '3rem',
@@ -82,9 +77,9 @@ function RenderHomePage(props) {
           flexDirection: 'column',
           textAlign: 'center',
           position: 'relative',
-          backgroundColor: 'lightgrey',
-          border: '2px dotted navy',
-          textShadow: '1px 1px 10px navy',
+          backgroundColor: '#FED85D',
+          border: '2px dotted #5946B2',
+          textShadow: '1px 1px 10px #5946B2',
         }}
       >
         Aspire to your dream home with <br />{' '}
@@ -98,7 +93,18 @@ function RenderHomePage(props) {
           CitySpire
         </strong>
       </h7>
-      <Carousel autoplay>
+      <Content
+        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.05rem' }}
+      >
+        <SearchForm />
+      </Content>
+
+      <Carousel
+        autoplay
+        style={{
+          marginTop: '-5rem',
+        }}
+      >
         <div>
           <h3 style={contentStyle}>
             {' '}

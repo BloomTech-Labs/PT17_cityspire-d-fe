@@ -57,6 +57,7 @@ const SearchForm = ({ fetchCityData }) => {
       <Col span={12} offset={6} style={ColStyle}>
         <div>
           <Title style={TitleStyle}></Title>
+
           <Search
             placeholder="Ex. New York, NY"
             allowClear
@@ -66,6 +67,21 @@ const SearchForm = ({ fetchCityData }) => {
             value={searchValue.city}
             onChange={handleChange}
           />
+          <p
+            style={{
+              fontSize: '2.5rem',
+              fontFamily: 'Hachi Maru Pop, cursive',
+              fontStyle: 'italic',
+              marginTop: '-8%',
+              backgroundColor: '#5946B2',
+              paddingTop: '2rem',
+              color: 'white',
+              border: '2px outset lightgrey',
+              textShadow: '1px 1px 10px #FFCC33',
+            }}
+          >
+            Search Your Desires
+          </p>
         </div>
       </Col>
     </Row>

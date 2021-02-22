@@ -22,10 +22,10 @@ import {
 } from '@ant-design/icons';
 
 import citylife from '../../../assets/imgs/citylife.jpg';
-import AL from '../../../assets/imgs/AL.png';
-import AK from '../../../assets/imgs/AK.png';
-import AZ from '../../../assets/imgs/AZ.png';
-import AR from '../../../assets/imgs/AR.png';
+import States1 from '../../../assets/imgs/States1.png';
+import States2 from '../../../assets/imgs/States2.png';
+// import AZ from '../../../assets/imgs/AZ.png';
+// import AR from '../../../assets/imgs/AR.png';
 
 const { Footer } = Layout;
 const routes = [
@@ -57,7 +57,7 @@ const RenderCitySearchResults = ({ cityData }) => {
     <>
       <PageHeader className="site-page-header" breadcrumb={{ routes }} />
       <MapboxGLMap />
-      <Row style={{ marginTop: '28rem', marginBottom: '5rem' }} wrap="true">
+      <Row style={{ marginTop: '23rem', marginBottom: '5rem' }} wrap="true">
         <Col lg={18} offset={2}>
           <h1>Cityspire City Data</h1>
         </Col>
@@ -119,15 +119,15 @@ const RenderCitySearchResults = ({ cityData }) => {
         <div>
           <h3 style={contentStyle}>
             {' '}
-            <Image class="Carousel" preview={false} src={AL} />
+            <Image class="Carousel" preview={false} src={States1} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AK} />
+            <Image class="Carousel" preview={false} src={States2} />
           </h3>
         </div>
-        <div>
+        {/* <div>
           <h3 style={contentStyle}>
             <Image class="Carousel" preview={false} src={AZ} />
           </h3>
@@ -136,7 +136,7 @@ const RenderCitySearchResults = ({ cityData }) => {
           <h3 style={contentStyle}>
             <Image class="Carousel" preview={false} src={AR} />
           </h3>
-        </div>
+        </div> */}
       </Carousel>
 
       <Image
