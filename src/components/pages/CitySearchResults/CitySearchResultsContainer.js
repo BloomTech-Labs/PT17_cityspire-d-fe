@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { saveCity } from '../../../state/actions';
+import { fetchCityData, saveCity } from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
+import { Spin } from 'antd';
 
-function CitySearchResultsContainer({ cityData, saveCity }) {
+const spinStyle = {
+  textAlign: 'center',
+  position: 'absolute',
+  top: '46%',
+  width: '100%',
+  margin: 'auto',
+};
+
+function CitySearchResultsContainer({
+  cityData,
+  fetchCityData,
+  saveCity,
+  isFetching,
+}) {
+  useEffect(() => {
+    fetchCityData(localStorage.getItem('cityAndState'));
+  }, [fetchCityData]);
+
   const handleOnSave = () => {
     const cityInfo = {
       city: cityData.city,
@@ -20,10 +38,16 @@ function CitySearchResultsContainer({ cityData, saveCity }) {
 
   return (
     <>
-      <RenderCitySearchResults
-        cityData={cityData}
-        handleOnSave={handleOnSave}
-      />
+      {isFetching ? (
+        <div style={spinStyle}>
+          <Spin tip="Loading..." size="large"></Spin>
+        </div>
+      ) : (
+        <RenderCitySearchResults
+          cityData={cityData}
+          handleOnSave={handleOnSave}
+        />
+      )}
     </>
   );
 }
@@ -35,6 +59,6 @@ const mapStateToProps = state => {
     cityData: state.cityData.city,
   };
 };
-export default connect(mapStateToProps, { saveCity })(
+export default connect(mapStateToProps, { fetchCityData, saveCity })(
   CitySearchResultsContainer
 );
