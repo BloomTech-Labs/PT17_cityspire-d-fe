@@ -46,7 +46,6 @@ function RenderHomePage(props) {
           <Space size="small">
             <Avatar size="small" icon={<UserOutlined />} />
             {userInfo.name}
-            {console.log(userInfo)}
           </Space>
           <Button onClick={() => authService.logout()}>Logout</Button>
         </Space>
