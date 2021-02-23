@@ -13,7 +13,7 @@ export const fetchSavedCity = profileId => {
     dispatch({ type: FETCHING_CITIES_START });
 
     try {
-      const res = await axios.post(`${url}/profile/${profileId}/city`);
+      const res = await axios.get(`${url}/profile/${profileId}/city`);
 
       dispatch({
         type: FETCHING_CITIES_SUCCESS,
