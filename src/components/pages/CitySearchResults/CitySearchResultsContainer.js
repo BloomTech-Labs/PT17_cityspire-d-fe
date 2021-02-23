@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCityData, saveCity } from '../../../state/actions';
+import { fetchCityData, saveCity, unsaveCity } from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
 import { Spin } from 'antd';
 
@@ -16,13 +16,16 @@ function CitySearchResultsContainer({
   cityData,
   fetchCityData,
   saveCity,
+  unsaveCity,
   isFetching,
+  isSaved,
+  savedCities,
 }) {
   useEffect(() => {
     fetchCityData(localStorage.getItem('cityAndState'));
   }, [fetchCityData]);
 
-  const handleOnSave = () => {
+  const handleSaveCity = () => {
     const cityInfo = {
       city: cityData.city,
       state: cityData.state,
@@ -36,6 +39,10 @@ function CitySearchResultsContainer({
     saveCity(cityInfo);
   };
 
+  const handleRemoveCity = () => {
+    unsaveCity(savedCities.id);
+  };
+
   return (
     <>
       {isFetching ? (
@@ -45,7 +52,9 @@ function CitySearchResultsContainer({
       ) : (
         <RenderCitySearchResults
           cityData={cityData}
-          handleOnSave={handleOnSave}
+          handleSaveCity={handleSaveCity}
+          handleRemoveCity={handleRemoveCity}
+          isSaved={isSaved}
         />
       )}
     </>
@@ -57,8 +66,12 @@ const mapStateToProps = state => {
     isFetching: state.cityData.isFetching,
     error: state.cityData.error,
     cityData: state.cityData.city,
+    savedCities: state.cityOperations.savedCities,
+    isSaved: state.cityOperations.isSaved,
   };
 };
-export default connect(mapStateToProps, { fetchCityData, saveCity })(
-  CitySearchResultsContainer
-);
+export default connect(mapStateToProps, {
+  fetchCityData,
+  saveCity,
+  unsaveCity,
+})(CitySearchResultsContainer);

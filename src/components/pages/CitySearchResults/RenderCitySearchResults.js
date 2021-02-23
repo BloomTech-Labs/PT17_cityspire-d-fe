@@ -12,6 +12,8 @@ import {
   GoldTwoTone,
   PieChartTwoTone,
   ThunderboltTwoTone,
+  PushpinFilled,
+  CloseCircleFilled,
 } from '@ant-design/icons';
 
 const { Footer } = Layout;
@@ -20,7 +22,12 @@ const StatisticStyle = {
   fontSize: '1.85rem',
 };
 
-const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
+const RenderCitySearchResults = ({
+  cityData,
+  handleSaveCity,
+  handleRemoveCity,
+  isSaved,
+}) => {
   const routes = [
     {
       path: '/',
@@ -41,14 +48,26 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
         <Col
           style={{ position: 'absolute', right: '2.5rem', paddingTop: '4px' }}
         >
-          <Button
-            type="primary"
-            shape="round"
-            size="large"
-            onClick={() => handleOnSave()}
-          >
-            Save City
-          </Button>
+          {!isSaved ? (
+            <Button
+              type="primary"
+              shape="round"
+              size="large"
+              onClick={() => handleSaveCity()}
+            >
+              <PushpinFilled />
+              Pin City
+            </Button>
+          ) : (
+            <Button
+              type="secondary"
+              shape="round"
+              size="large"
+              onClick={() => handleRemoveCity()}
+            >
+              <PushpinFilled /> Remove City
+            </Button>
+          )}
         </Col>
       </Row>
 
