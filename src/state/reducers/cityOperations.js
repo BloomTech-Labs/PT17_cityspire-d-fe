@@ -17,7 +17,7 @@ export const cityOperationsReducer = (state = initialState, action) => {
     case SAVE_CITY:
       return {
         ...state,
-        savedCities: [...action.payload],
+        savedCities: [...state.savedCities, action.payload],
         isSaved: true,
       };
     case UNSAVE_CITY:
