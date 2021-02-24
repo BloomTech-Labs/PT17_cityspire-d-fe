@@ -1,7 +1,17 @@
 import React from 'react';
 import MapboxGLMap from '../../common/MapboxGLMap';
 
-import { Statistic, Row, Col, PageHeader, Card, Layout, Button } from 'antd';
+import {
+  Statistic,
+  Row,
+  Col,
+  PageHeader,
+  Card,
+  Layout,
+  Button,
+  Carousel,
+  Image,
+} from 'antd';
 
 import {
   DollarCircleTwoTone,
@@ -13,13 +23,25 @@ import {
   PieChartTwoTone,
   ThunderboltTwoTone,
   PushpinFilled,
-  CloseCircleFilled,
 } from '@ant-design/icons';
+
+import citylife from '../../../assets/imgs/citylife.jpg';
+import States1 from '../../../assets/imgs/States1.png';
+import States2 from '../../../assets/imgs/States2.png';
 
 const { Footer } = Layout;
 
 const StatisticStyle = {
   fontSize: '1.85rem',
+};
+
+const contentStyle = {
+  height: '395px',
+  color: '#fff',
+  lineHeight: '30px',
+  textAlign: 'center',
+  background: '#f0f2f5',
+  mgin: '1%',
 };
 
 const RenderCitySearchResults = ({
@@ -183,11 +205,29 @@ const RenderCitySearchResults = ({
           })}
       </Row>
 
+      <Carousel autoplay style={{ mginTop: '2%', mginBottom: '5rem' }}>
+        <div>
+          <h3 style={contentStyle}>
+            {' '}
+            <Image class="Carousel" preview={false} src={States1} />
+          </h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>
+            <Image class="Carousel" preview={false} src={States2} />
+          </h3>
+        </div>
+      </Carousel>
+
+      <Image
+        preview={false}
+        src={citylife}
+        style={{ width: '100%', height: '100px' }}
+      />
       <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
     </>
   );
 };
-
 export default RenderCitySearchResults;
