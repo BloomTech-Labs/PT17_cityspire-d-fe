@@ -24,8 +24,8 @@ import {
 import citylife from '../../../assets/imgs/citylife.jpg';
 import States1 from '../../../assets/imgs/States1.png';
 import States2 from '../../../assets/imgs/States2.png';
-// import AZ from '../../../assets/imgs/AZ.png';
-// import AR from '../../../assets/imgs/AR.png';
+// import States3 from '../../../assets/imgs/States3.png';
+// import  from '../../../assets/imgs/.png';
 
 const { Footer } = Layout;
 const routes = [
@@ -49,15 +49,15 @@ const contentStyle = {
   lineHeight: '30px',
   textAlign: 'center',
   background: '#f0f2f5',
-  margin: '1%',
+  mgin: '1%',
 };
 
-const RenderCitySearchResults = ({ cityData }) => {
+const RenderCitySechResults = ({ cityData }) => {
   return (
     <>
       <PageHeader className="site-page-header" breadcrumb={{ routes }} />
       <MapboxGLMap />
-      <Row style={{ marginTop: '23rem', marginBottom: '5rem' }} wrap="true">
+      <Row style={{ mginTop: '23rem', mginBottom: '5rem' }} wrap="true">
         <Col lg={18} offset={2}>
           <h1>Cityspire City Data</h1>
         </Col>
@@ -115,7 +115,7 @@ const RenderCitySearchResults = ({ cityData }) => {
         </Col>
       </Row>
 
-      <Carousel autoplay style={{ marginTop: '2%', marginBottom: '5rem' }}>
+      <Carousel autoplay style={{ mginTop: '2%', mginBottom: '5rem' }}>
         <div>
           <h3 style={contentStyle}>
             {' '}
@@ -129,12 +129,12 @@ const RenderCitySearchResults = ({ cityData }) => {
         </div>
         {/* <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AZ} />
+            <Image class="Carousel" preview={false} src={States3} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AR} />
+            <Image class="Carousel" preview={false} src={} />
           </h3>
         </div> */}
       </Carousel>
@@ -159,4 +159,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(RenderCitySearchResults);
+export default connect(mapStateToProps)(RenderCitySechResults);

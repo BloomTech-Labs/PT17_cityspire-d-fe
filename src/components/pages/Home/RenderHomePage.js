@@ -102,7 +102,7 @@ function RenderHomePage(props) {
       <Carousel
         autoplay
         style={{
-          marginTop: '-5rem',
+          marginTop: '-2rem',
         }}
       >
         <div>
@@ -132,6 +132,15 @@ function RenderHomePage(props) {
           </h3>
         </div>
       </Carousel>
+
+      <a
+        href="https://cityspire-states.netlify.app/"
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        US States
+      </a>
 
       <Space size="large" align="center">
         <p
