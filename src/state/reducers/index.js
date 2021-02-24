@@ -3,7 +3,9 @@
 
 import { combineReducers } from 'redux';
 import { cityDataReducer } from './cityData';
+import { cityOperationsReducer } from './cityOperations';
 
 export const reducers = combineReducers({
   cityData: cityDataReducer,
+  cityOperations: cityOperationsReducer,
 });
