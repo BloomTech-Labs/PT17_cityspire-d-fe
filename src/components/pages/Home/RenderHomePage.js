@@ -14,8 +14,6 @@ import { Layout, Avatar, Button, Image, Space, Carousel } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import SearchForm from '../../common/SearchForm';
 
-import '../Home/home.css';
-
 const { Header, Content, Footer } = Layout;
 
 const contentStyle = {
@@ -68,10 +66,44 @@ function RenderHomePage(props) {
       >
         {' '}
       </Space>
-      <Content style={{ height: '85vh', marginTop: '-11.4rem' }}>
+      <h7
+        style={{
+          fontSize: '3rem',
+          fontFamily: 'Hachi Maru Pop, cursive',
+          marginTop: '-7%',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          position: 'relative',
+          backgroundColor: '#FED85D',
+          border: '2px dotted #5946B2',
+          textShadow: '1px 1px 10px #5946B2',
+        }}
+      >
+        Aspire to your dream home with <br />{' '}
+        <strong
+          style={{
+            fontSize: '5rem',
+            marginTop: '-2%',
+            textDecoration: 'underline',
+          }}
+        >
+          CitySpire
+        </strong>
+      </h7>
+      <Content
+        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.05rem' }}
+      >
         <SearchForm />
       </Content>
-      <Carousel autoplay>
+
+      <Carousel
+        autoplay
+        style={{
+          marginTop: '-2rem',
+        }}
+      >
         <div>
           <h3 style={contentStyle}>
             {' '}
@@ -100,6 +132,20 @@ function RenderHomePage(props) {
         </div>
       </Carousel>
 
+      <a
+        href="https://cityspire-states.netlify.app/"
+        style={{
+          textAlign: 'center',
+          fontSize: '2rem',
+          background: 'navy',
+          color: 'white',
+          width: '30%',
+          margin: 'auto 35%',
+        }}
+      >
+        Learn more about US States
+      </a>
+
       <Space size="large" align="center">
         <p
           style={{
@@ -107,11 +153,12 @@ function RenderHomePage(props) {
             justifyContent: 'center',
             margin: '2%',
             textAlign: 'center',
-            fontSize: '1.5rem',
+            fontSize: '2rem',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Searching for the perfect dream home but don't know where to start?
+          You're in the right place! Let CitySpire lead you to the desires of
+          your heart!
         </p>
         <Image
           preview={false}
