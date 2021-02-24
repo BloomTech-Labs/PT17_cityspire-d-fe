@@ -10,9 +10,13 @@ const styles = {
   position: 'absolute',
 };
 
-const MapboxGLMap = () => {
+const MapboxGLMap = ({ lat, long }) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
+  const [coords] = useState({
+    lat: lat,
+    long: long,
+  });
 
   useEffect(() => {
     mapboxgl.accessToken =
@@ -22,7 +26,7 @@ const MapboxGLMap = () => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-73.935242, 40.73061],
+        center: [coords.lat, coords.long],
         zoom: 12,
       });
 
@@ -31,7 +35,7 @@ const MapboxGLMap = () => {
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
         marker: false, // Do not use the default marker style
-        placeholder: 'Search for Apartments', // Placeholder text for the search bar
+        placeholder: 'Search for Cities', // Placeholder text for the search bar
       });
 
       // Add the geocoder to the map
@@ -54,7 +58,7 @@ const MapboxGLMap = () => {
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+  }, [map, coords]);
 
   return (
     <>

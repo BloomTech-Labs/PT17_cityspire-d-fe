@@ -44,7 +44,6 @@ function RenderHomePage(props) {
           <Space size="small">
             <Avatar size="small" icon={<UserOutlined />} />
             {userInfo.name}
-            {console.log(userInfo)}
           </Space>
           <Button onClick={() => authService.logout()}>Logout</Button>
         </Space>
@@ -137,9 +136,14 @@ function RenderHomePage(props) {
         href="https://cityspire-states.netlify.app/"
         style={{
           textAlign: 'center',
+          fontSize: '2rem',
+          background: 'navy',
+          color: 'white',
+          width: '30%',
+          margin: 'auto 35%',
         }}
       >
-        US States
+        Learn more about US States
       </a>
 
       <Space size="large" align="center">

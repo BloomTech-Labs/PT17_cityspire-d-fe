@@ -4,3 +4,4 @@
 // You can have multiple action creators per file if it makes sense to the purpose those action creators are serving.
 // Declare action TYPES at the top of the file
 export * from './cityData';
+export * from './cityOperations';
