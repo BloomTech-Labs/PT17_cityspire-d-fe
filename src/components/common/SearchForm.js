@@ -47,6 +47,7 @@ const SearchForm = ({ fetchCityData }) => {
   };
 
   const onSubmit = () => {
+    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
     fetchCityData(cityAndState);
     push(`/${cityAndState.city}-${cityAndState.state}`);
     setSearchValue('');

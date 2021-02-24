@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { saveCity } from '../../../state/actions';
+import { fetchCityData, saveCity, unsaveCity } from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
+import { Spin } from 'antd';
 
-function CitySearchResultsContainer({ cityData, saveCity }) {
-  const handleOnSave = () => {
+const spinStyle = {
+  textAlign: 'center',
+  position: 'absolute',
+  top: '46%',
+  width: '100%',
+  margin: 'auto',
+};
+
+function CitySearchResultsContainer({
+  cityData,
+  fetchCityData,
+  saveCity,
+  unsaveCity,
+  isFetching,
+  isSaved,
+  savedCities,
+}) {
+  useEffect(() => {
+    fetchCityData(localStorage.getItem('cityAndState'));
+  }, [fetchCityData]);
+
+  const handleSaveCity = () => {
     const cityInfo = {
       city: cityData.city,
       state: cityData.state,
@@ -18,12 +39,24 @@ function CitySearchResultsContainer({ cityData, saveCity }) {
     saveCity(cityInfo);
   };
 
+  const handleRemoveCity = () => {
+    unsaveCity(savedCities.id);
+  };
+
   return (
     <>
-      <RenderCitySearchResults
-        cityData={cityData}
-        handleOnSave={handleOnSave}
-      />
+      {isFetching ? (
+        <div style={spinStyle}>
+          <Spin tip="Loading..." size="large"></Spin>
+        </div>
+      ) : (
+        <RenderCitySearchResults
+          cityData={cityData}
+          handleSaveCity={handleSaveCity}
+          handleRemoveCity={handleRemoveCity}
+          isSaved={isSaved}
+        />
+      )}
     </>
   );
 }
@@ -33,8 +66,12 @@ const mapStateToProps = state => {
     isFetching: state.cityData.isFetching,
     error: state.cityData.error,
     cityData: state.cityData.city,
+    savedCities: state.cityOperations.savedCities,
+    isSaved: state.cityOperations.isSaved,
   };
 };
-export default connect(mapStateToProps, { saveCity })(
-  CitySearchResultsContainer
-);
+export default connect(mapStateToProps, {
+  fetchCityData,
+  saveCity,
+  unsaveCity,
+})(CitySearchResultsContainer);
