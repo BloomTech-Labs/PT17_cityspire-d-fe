@@ -9,7 +9,7 @@ const spinStyle = {
   marginTop: '25%',
 };
 
-function HomeContainer({ fetchCityData }) {
+function HomeContainer() {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -43,11 +43,7 @@ function HomeContainer({ fetchCityData }) {
         </div>
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderHomePage
-          userInfo={userInfo}
-          authService={authService}
-          fetchCityData={fetchCityData}
-        />
+        <RenderHomePage userInfo={userInfo} authService={authService} />
       )}
     </>
   );

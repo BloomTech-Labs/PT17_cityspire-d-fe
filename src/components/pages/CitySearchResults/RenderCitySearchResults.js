@@ -1,17 +1,7 @@
 import React from 'react';
 import MapboxGLMap from '../../common/MapboxGLMap';
 
-import {
-  Statistic,
-  Row,
-  Col,
-  PageHeader,
-  Card,
-  Layout,
-  Image,
-  Carousel,
-  Button,
-} from 'antd';
+import { Statistic, Row, Col, PageHeader, Card, Layout, Button } from 'antd';
 
 import {
   DollarCircleTwoTone,
@@ -19,13 +9,12 @@ import {
   SmileTwoTone,
   HomeTwoTone,
   CarTwoTone,
+  GoldTwoTone,
+  PieChartTwoTone,
+  ThunderboltTwoTone,
+  PushpinFilled,
+  CloseCircleFilled,
 } from '@ant-design/icons';
-
-import citylife from '../../../assets/imgs/citylife.jpg';
-import AL from '../../../assets/imgs/AL.png';
-import AK from '../../../assets/imgs/AK.png';
-import AZ from '../../../assets/imgs/AZ.png';
-import AR from '../../../assets/imgs/AR.png';
 
 const { Footer } = Layout;
 
@@ -33,16 +22,12 @@ const StatisticStyle = {
   fontSize: '1.85rem',
 };
 
-const contentStyle = {
-  height: '395px',
-  color: '#fff',
-  lineHeight: '30px',
-  textAlign: 'center',
-  background: '#f0f2f5',
-  margin: '1%',
-};
-
-const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
+const RenderCitySearchResults = ({
+  cityData,
+  handleSaveCity,
+  handleRemoveCity,
+  isSaved,
+}) => {
   const routes = [
     {
       path: '/',
@@ -50,7 +35,7 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
     },
     {
       path: 'first',
-      breadcrumbName: `${cityData.city}`,
+      breadcrumbName: localStorage.getItem('cityAndState'),
     },
   ];
 
@@ -63,14 +48,26 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
         <Col
           style={{ position: 'absolute', right: '2.5rem', paddingTop: '4px' }}
         >
-          <Button
-            type="primary"
-            shape="round"
-            size="large"
-            onClick={() => handleOnSave()}
-          >
-            Save City
-          </Button>
+          {!isSaved ? (
+            <Button
+              type="primary"
+              shape="round"
+              size="large"
+              onClick={() => handleSaveCity()}
+            >
+              <PushpinFilled />
+              Pin City
+            </Button>
+          ) : (
+            <Button
+              type="secondary"
+              shape="round"
+              size="large"
+              onClick={() => handleRemoveCity()}
+            >
+              <PushpinFilled /> Remove City
+            </Button>
+          )}
         </Col>
       </Row>
 
@@ -79,13 +76,14 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
         style={{
           margin: '28rem auto 5rem',
           padding: '0 5vw',
+          maxWidth: '1366px',
         }}
         wrap="true"
       >
         <Col xs={24}>
           <h1>Cityspire City Data</h1>
         </Col>
-        <Col xs={24} sm={8} md={4}>
+        <Col xs={24} sm={8} md={6}>
           <Card>
             <Statistic
               title="Rental Price"
@@ -95,7 +93,7 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={4}>
+        <Col xs={24} sm={8} md={6}>
           <Card>
             <Statistic
               title="Crime"
@@ -105,17 +103,37 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={4}>
+        <Col xs={24} sm={8} md={6}>
           <Card>
             <Statistic
-              title="Pollution"
-              value={cityData.pollution}
+              title="Air Quality Index"
+              value={cityData.air_quality_index}
               valueStyle={StatisticStyle}
               prefix={<CarTwoTone twoToneColor="gray" />}
             />
           </Card>
         </Col>
         <Col xs={24} sm={8} md={6}>
+          <Card>
+            <Statistic
+              title="Diversity Index"
+              value={cityData.diversity_index}
+              valueStyle={StatisticStyle}
+              prefix={<PieChartTwoTone twoToneColor="tan" />}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={8} md={8}>
+          <Card>
+            <Statistic
+              title="Population"
+              value={cityData.population}
+              valueStyle={StatisticStyle}
+              prefix={<GoldTwoTone twoToneColor="purple" />}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={8} md={8}>
           <Card>
             <Statistic
               title="Walkability"
@@ -126,7 +144,7 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={6}>
+        <Col xs={24} sm={8} md={8}>
           <Card>
             <Statistic
               title="Livability"
@@ -138,36 +156,33 @@ const RenderCitySearchResults = ({ cityData, handleOnSave }) => {
           </Card>
         </Col>
       </Row>
+      <Row
+        style={{
+          margin: '5rem auto',
+          padding: '0 5vw',
+          maxWidth: '1366px',
+        }}
+        wrap="true"
+      >
+        <Col xs={24}>
+          <h2>Recommended Cities</h2>
+        </Col>
+        {cityData.recommendations &&
+          cityData.recommendations.map(item => {
+            return (
+              <Col xs={24} sm={8} md={8} key={item.city}>
+                <Card style={{ fontSize: '1.2rem' }}>
+                  <ThunderboltTwoTone
+                    twoToneColor="gold"
+                    style={{ marginRight: '.25rem' }}
+                  />
+                  {item.city}, {item.state}
+                </Card>
+              </Col>
+            );
+          })}
+      </Row>
 
-      <Carousel autoplay style={{ marginTop: '2%', marginBottom: '5rem' }}>
-        <div>
-          <h3 style={contentStyle}>
-            {' '}
-            <Image class="Carousel" preview={false} src={AL} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AK} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AZ} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={AR} />
-          </h3>
-        </div>
-      </Carousel>
-
-      <Image
-        preview={false}
-        src={citylife}
-        style={{ width: '100%', height: '100px' }}
-      />
       <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
         Cityspire ©2021 Created by Labspt15-cityspire-g
       </Footer>
