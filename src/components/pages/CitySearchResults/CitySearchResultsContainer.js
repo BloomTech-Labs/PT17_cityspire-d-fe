@@ -38,7 +38,9 @@ function CitySearchResultsContainer({
       air_quality_index: cityData.air_quality_index,
       walkability: cityData.walkability,
       livability: cityData.livability,
-      profileId: localStorage.getItem('token'),
+      population: cityData.population,
+      diversity_index: cityData.diversity_index,
+      profile_id: localStorage.getItem('token'),
     };
     saveCity(cityInfo);
   };
