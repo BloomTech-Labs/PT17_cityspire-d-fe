@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCityData, saveCity, unsaveCity } from '../../../state/actions';
+import {
+  fetchCityData,
+  fetchSavedCity,
+  saveCity,
+  unsaveCity,
+} from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
-import { Spin } from 'antd';
+import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
 
 const spinStyle = {
@@ -22,6 +27,7 @@ function CitySearchResultsContainer({
   isFetching,
   isSaved,
   savedCities,
+  fetchSavedCity,
 }) {
   const { push } = useHistory();
 
@@ -29,10 +35,24 @@ function CitySearchResultsContainer({
     fetchCityData(localStorage.getItem('cityAndState'));
   }, [fetchCityData]);
 
+  const savedNotification = () => {
+    notification.open({
+      message: 'City Pinned',
+      description: `${cityData.city.city}, ${cityData.city.state}, has been pinned and can be viewed on the Pinned Cities page.`,
+    });
+  };
+
+  const deleteNotification = () => {
+    notification.open({
+      message: 'City Removed',
+      description: `${cityData.city.city}, ${cityData.city.state}, has been has been removed from Pinned Cities.`,
+    });
+  };
+
   const handleSaveCity = () => {
     const cityInfo = {
-      city: cityData.city,
-      state: cityData.state,
+      city: cityData.city.city,
+      state: cityData.city.state,
       rental_price: cityData.rental_price,
       crime: cityData.crime,
       air_quality_index: cityData.air_quality_index,
@@ -43,10 +63,13 @@ function CitySearchResultsContainer({
       profile_id: localStorage.getItem('token'),
     };
     saveCity(cityInfo);
+    savedNotification();
   };
 
   const handleRemoveCity = () => {
+    fetchSavedCity(localStorage.getItem('token'));
     unsaveCity(savedCities.id);
+    deleteNotification();
   };
 
   const handleOnCityClick = cityAndState => {
@@ -88,6 +111,7 @@ const mapStateToProps = state => {
 };
 export default connect(mapStateToProps, {
   fetchCityData,
+  fetchSavedCity,
   saveCity,
   unsaveCity,
 })(CitySearchResultsContainer);
