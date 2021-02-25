@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchSavedCity, unsaveCity } from '../../../state/actions';
+import { useHistory } from 'react-router-dom';
+import {
+  fetchSavedCity,
+  unsaveCity,
+  fetchCityData,
+} from '../../../state/actions';
 
-import { Spin } from 'antd';
+import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
-import RenderUserDashboard from './RenderUserDahsboard';
+import RenderUserDashboard from './RenderUserDashboard';
 
 const spinStyle = {
   textAlign: 'center',
@@ -20,9 +25,29 @@ const UserDashboardContainer = ({
   unsaveCity,
   isFetching,
 }) => {
+  const { push } = useHistory();
+
   useEffect(() => {
     fetchSavedCity(localStorage.getItem('token'));
   }, [fetchSavedCity]);
+
+  const deleteNotification = () => {
+    notification.open({
+      message: 'City Removed',
+      description: `${savedCities[0].city}, ${savedCities[0].state}, has been has been removed from Pinned Cities.`,
+    });
+  };
+
+  const handleRemoveCity = () => {
+    fetchSavedCity(localStorage.getItem('token'));
+    unsaveCity(savedCities.id);
+    deleteNotification();
+  };
+
+  const handleOnCityClick = cityAndState => {
+    fetchCityData(cityAndState);
+    push(`/${cityAndState.city}-${cityAndState.state}`);
+  };
 
   return (
     <>
@@ -34,7 +59,8 @@ const UserDashboardContainer = ({
       ) : (
         <RenderUserDashboard
           savedCities={savedCities}
-          unsaveCity={unsaveCity}
+          handleRemoveCity={handleRemoveCity}
+          handleOnCityClick={handleOnCityClick}
         />
       )}
       <Footer />
