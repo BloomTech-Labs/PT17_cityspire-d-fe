@@ -1,5 +1,5 @@
 import React from 'react';
-import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
+
 import cities from '../../../assets/imgs/cities.png';
 import citylife from '../../../assets/imgs/citylife.jpg';
 import map from '../../../assets/imgs/map2.jpg';
@@ -9,12 +9,11 @@ import city3 from '../../../assets/imgs/city3.png';
 import city4 from '../../../assets/imgs/city4.png';
 import city5 from '../../../assets/imgs/city5.png';
 
-import { Layout, Avatar, Button, Image, Space, Carousel } from 'antd';
+import { Layout, Image, Space, Carousel } from 'antd';
 
-import { UserOutlined } from '@ant-design/icons';
-import SearchForm from '../../common/SearchForm';
+import { Header, Footer, SearchForm } from '../../common';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 const contentStyle = {
   height: '255px',
@@ -25,29 +24,10 @@ const contentStyle = {
   margin: '2%',
 };
 
-function RenderHomePage(props) {
-  const { userInfo, authService } = props;
-
+function RenderHomePage() {
   return (
     <Layout className="layout">
-      <Header
-        style={{
-          backgroundColor: 'white',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <Image preview={false} src={cityspireLogo} style={{ width: '120px' }} />
-
-        <Space size="large">
-          <Space size="small">
-            <Avatar size="small" icon={<UserOutlined />} />
-            {userInfo.name}
-          </Space>
-          <Button onClick={() => authService.logout()}>Logout</Button>
-        </Space>
-      </Header>
+      <Header />
       <Image
         class="cities"
         preview={false}
@@ -175,9 +155,7 @@ function RenderHomePage(props) {
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
-      <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
-        Cityspire ©2021 Created by Labspt15-cityspire-g
-      </Footer>
+      <Footer />
     </Layout>
   );
 }
