@@ -109,7 +109,7 @@ const RenderCitySearchResults = ({
         <Col xs={24}>
           <h2>Cityspire City Data</h2>
         </Col>
-        <Col xs={24} sm={8} md={6}>
+        <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
               title="Rental Price"
@@ -119,7 +119,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={6}>
+        <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
               title="Crime"
@@ -129,7 +129,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={6}>
+        <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
               title="Air Quality Index"
@@ -139,7 +139,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={6}>
+        <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
               title="Diversity Index"
@@ -149,7 +149,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={8}>
+        <Col xs={24} sm={12} md={8}>
           <Card>
             <Statistic
               title="Population"
@@ -159,7 +159,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={8}>
+        <Col xs={24} sm={12} md={8}>
           <Card>
             <Statistic
               title="Walkability"
@@ -170,7 +170,7 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8} md={8}>
+        <Col xs={24} sm={12} md={8}>
           <Card>
             <Statistic
               title="Livability"
@@ -189,7 +189,7 @@ const RenderCitySearchResults = ({
         {cityData.recommendations &&
           cityData.recommendations.map(item => {
             return (
-              <Col xs={24} sm={8} md={8} key={item.city}>
+              <Col xs={24} sm={12} md={8} key={item.city}>
                 <Card
                   style={{ fontSize: '1.2rem', cursor: 'pointer' }}
                   onClick={() =>
