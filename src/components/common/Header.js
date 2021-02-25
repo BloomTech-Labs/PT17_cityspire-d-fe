@@ -57,7 +57,9 @@ const Header = () => {
 
   return (
     <header style={HeaderStyle}>
-      <Image preview={false} src={cityspireLogo} style={{ width: '120px' }} />
+      <a href="/">
+        <Image preview={false} src={cityspireLogo} style={{ width: '120px' }} />
+      </a>
 
       <Space size="large">
         <Dropdown overlay={menu} trigger={['click']}>
