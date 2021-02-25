@@ -30,7 +30,7 @@ import States1 from '../../../assets/imgs/States1.png';
 import States2 from '../../../assets/imgs/States2.png';
 
 const StatisticStyle = {
-  fontSize: '1.85rem',
+  fontSize: '1.5rem',
 };
 
 const RowStyle = {
@@ -80,7 +80,16 @@ const RenderCitySearchResults = ({
         </Col>
 
         <Col style={{ paddingTop: '4px' }}>
-          {!isSaved ? (
+          {isSaved ? (
+            <Button
+              type="secondary"
+              shape="round"
+              size="large"
+              onClick={() => handleRemoveCity()}
+            >
+              <PushpinFilled /> Remove City
+            </Button>
+          ) : (
             <Button
               type="primary"
               shape="round"
@@ -89,15 +98,6 @@ const RenderCitySearchResults = ({
             >
               <PushpinFilled />
               Pin City
-            </Button>
-          ) : (
-            <Button
-              type="secondary"
-              shape="round"
-              size="large"
-              onClick={() => handleRemoveCity()}
-            >
-              <PushpinFilled /> Remove City
             </Button>
           )}
         </Col>
