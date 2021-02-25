@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchSavedCity, unsaveCity } from '../../../state/actions';
+
+import { Header, Footer } from '../../common';
 import RenderUserDashboard from './RenderUserDahsboard';
 
 const UserDashboardContainer = ({
@@ -14,7 +16,9 @@ const UserDashboardContainer = ({
 
   return (
     <>
+      <Header />
       <RenderUserDashboard savedCities={savedCities} unsaveCity={unsaveCity} />
+      <Footer />
     </>
   );
 };
