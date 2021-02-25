@@ -1,13 +1,12 @@
 import React from 'react';
-import MapboxGLMap from '../../common/MapboxGLMap';
+import { MapboxGLMap } from '../../common';
 
 import {
   Statistic,
   Row,
   Col,
-  PageHeader,
   Card,
-  Layout,
+  PageHeader,
   Button,
   Carousel,
   Image,
@@ -23,16 +22,21 @@ import {
   PieChartTwoTone,
   ThunderboltTwoTone,
   PushpinFilled,
+  EnvironmentFilled,
 } from '@ant-design/icons';
 
 import citylife from '../../../assets/imgs/citylife.jpg';
 import States1 from '../../../assets/imgs/States1.png';
 import States2 from '../../../assets/imgs/States2.png';
 
-const { Footer } = Layout;
-
 const StatisticStyle = {
   fontSize: '1.85rem',
+};
+
+const RowStyle = {
+  margin: '5vw auto',
+  padding: '0 5vw',
+  maxWidth: '1366px',
 };
 
 const contentStyle = {
@@ -49,27 +53,33 @@ const RenderCitySearchResults = ({
   handleSaveCity,
   handleRemoveCity,
   isSaved,
+  handleOnCityClick,
 }) => {
-  const routes = [
-    {
-      path: '/',
-      breadcrumbName: 'Home',
-    },
-    {
-      path: 'first',
-      breadcrumbName: localStorage.getItem('cityAndState'),
-    },
-  ];
-
   return (
     <>
-      <Row style={{ padding: '1rem' }}>
-        <Col lg={8}>
-          <PageHeader className="site-page-header" breadcrumb={{ routes }} />
+      <Row
+        style={{
+          padding: '.25rem 5vw',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: 'ghostwhite',
+        }}
+      >
+        <Col>
+          <PageHeader style={{ marginLeft: '-1.5rem' }}>
+            <h1 style={{ fontSize: '1.5rem' }}>
+              <EnvironmentFilled
+                style={{ marginRight: '.5rem', color: 'rgb(24, 144, 255)' }}
+              />
+              {cityData.city
+                ? `${cityData.city.city}, ${cityData.city.state}`
+                : 'loading...'}
+            </h1>
+          </PageHeader>
         </Col>
-        <Col
-          style={{ position: 'absolute', right: '2.5rem', paddingTop: '4px' }}
-        >
+
+        <Col style={{ paddingTop: '4px' }}>
           {!isSaved ? (
             <Button
               type="primary"
@@ -93,17 +103,11 @@ const RenderCitySearchResults = ({
         </Col>
       </Row>
 
-      <MapboxGLMap lat={-73.935242} long={40.73061} />
-      <Row
-        style={{
-          margin: '28rem auto 5rem',
-          padding: '0 5vw',
-          maxWidth: '1366px',
-        }}
-        wrap="true"
-      >
+      <MapboxGLMap lat={cityData.latitude} long={cityData.longitude} />
+
+      <Row style={RowStyle} wrap="true">
         <Col xs={24}>
-          <h1>Cityspire City Data</h1>
+          <h2>Cityspire City Data</h2>
         </Col>
         <Col xs={24} sm={8} md={6}>
           <Card>
@@ -178,14 +182,7 @@ const RenderCitySearchResults = ({
           </Card>
         </Col>
       </Row>
-      <Row
-        style={{
-          margin: '5rem auto',
-          padding: '0 5vw',
-          maxWidth: '1366px',
-        }}
-        wrap="true"
-      >
+      <Row style={RowStyle} wrap="true">
         <Col xs={24}>
           <h2>Recommended Cities</h2>
         </Col>
@@ -193,10 +190,15 @@ const RenderCitySearchResults = ({
           cityData.recommendations.map(item => {
             return (
               <Col xs={24} sm={8} md={8} key={item.city}>
-                <Card style={{ fontSize: '1.2rem' }}>
+                <Card
+                  style={{ fontSize: '1.2rem', cursor: 'pointer' }}
+                  onClick={() =>
+                    handleOnCityClick({ city: item.city, state: item.state })
+                  }
+                >
                   <ThunderboltTwoTone
                     twoToneColor="gold"
-                    style={{ marginRight: '.25rem' }}
+                    style={{ marginRight: '.25rem', fontSize: '1.35rem' }}
                   />
                   {item.city}, {item.state}
                 </Card>
@@ -224,9 +226,6 @@ const RenderCitySearchResults = ({
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
-      <Footer style={{ backgroundColor: 'white', textAlign: 'center' }}>
-        Cityspire ©2021 Created by Labspt15-cityspire-g
-      </Footer>
     </>
   );
 };

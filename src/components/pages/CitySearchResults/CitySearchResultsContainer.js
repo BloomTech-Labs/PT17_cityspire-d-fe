@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchCityData, saveCity, unsaveCity } from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
 import { Spin } from 'antd';
+import { Header, Footer } from '../../common/';
 
 const spinStyle = {
   textAlign: 'center',
@@ -21,6 +23,8 @@ function CitySearchResultsContainer({
   isSaved,
   savedCities,
 }) {
+  const { push } = useHistory();
+
   useEffect(() => {
     fetchCityData(localStorage.getItem('cityAndState'));
   }, [fetchCityData]);
@@ -43,6 +47,11 @@ function CitySearchResultsContainer({
     unsaveCity(savedCities.id);
   };
 
+  const handleOnCityClick = cityAndState => {
+    fetchCityData(cityAndState);
+    push(`/${cityAndState.city}-${cityAndState.state}`);
+  };
+
   return (
     <>
       {isFetching ? (
@@ -50,12 +59,17 @@ function CitySearchResultsContainer({
           <Spin tip="Loading..." size="large"></Spin>
         </div>
       ) : (
-        <RenderCitySearchResults
-          cityData={cityData}
-          handleSaveCity={handleSaveCity}
-          handleRemoveCity={handleRemoveCity}
-          isSaved={isSaved}
-        />
+        <div>
+          <Header />
+          <RenderCitySearchResults
+            cityData={cityData}
+            handleSaveCity={handleSaveCity}
+            handleRemoveCity={handleRemoveCity}
+            isSaved={isSaved}
+            handleOnCityClick={handleOnCityClick}
+          />
+          <Footer />
+        </div>
       )}
     </>
   );
