@@ -3,6 +3,7 @@ import { Route, useHistory, Switch, useParams } from 'react-router-dom';
 
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import 'antd/dist/antd.less';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { CitySearchResultsPage } from './pages/CitySearchResults';
 import { NotFoundPage } from './pages/NotFound';
