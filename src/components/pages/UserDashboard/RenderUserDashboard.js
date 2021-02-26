@@ -55,7 +55,7 @@ const RenderUserDashboard = ({
                       />
                     </Col>
                     <Col>
-                      <Button onClick={() => handleRemoveCity()}>
+                      <Button onClick={() => handleRemoveCity(item.id)}>
                         Remove City
                       </Button>
                       <Button

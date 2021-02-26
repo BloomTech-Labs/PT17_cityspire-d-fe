@@ -34,13 +34,13 @@ const UserDashboardContainer = ({
   const deleteNotification = () => {
     notification.open({
       message: 'City Removed',
-      description: `${savedCities[0].city}, ${savedCities[0].state}, has been has been removed from Pinned Cities.`,
+      description: `${savedCities.city}, ${savedCities.state}, has been has been removed from Pinned Cities.`,
     });
   };
 
-  const handleRemoveCity = () => {
+  const handleRemoveCity = id => {
     fetchSavedCity(localStorage.getItem('token'));
-    unsaveCity(localStorage.getItem('token'), savedCities.id);
+    unsaveCity(localStorage.getItem('token'), id);
     deleteNotification();
   };
 

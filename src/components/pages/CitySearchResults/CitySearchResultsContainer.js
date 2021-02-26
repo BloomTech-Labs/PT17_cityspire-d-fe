@@ -66,9 +66,9 @@ function CitySearchResultsContainer({
     savedNotification();
   };
 
-  const handleRemoveCity = () => {
+  const handleRemoveCity = id => {
     fetchSavedCity(localStorage.getItem('token'));
-    unsaveCity(localStorage.getItem('token'), savedCities.id);
+    unsaveCity(localStorage.getItem('token'), id);
     deleteNotification();
   };
 

@@ -85,7 +85,7 @@ const RenderCitySearchResults = ({
               type="secondary"
               shape="round"
               size="large"
-              onClick={() => handleRemoveCity()}
+              onClick={() => handleRemoveCity(cityData.id)}
             >
               <PushpinFilled /> Remove City
             </Button>
