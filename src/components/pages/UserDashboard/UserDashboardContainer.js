@@ -40,7 +40,7 @@ const UserDashboardContainer = ({
 
   const handleRemoveCity = () => {
     fetchSavedCity(localStorage.getItem('token'));
-    unsaveCity(savedCities.id);
+    unsaveCity(localStorage.getItem('token'), savedCities.id);
     deleteNotification();
   };
 

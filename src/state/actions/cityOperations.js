@@ -40,10 +40,12 @@ export const saveCity = cityData => {
   };
 };
 
-export const unsaveCity = cityId => {
+export const unsaveCity = (profileId, cityId) => {
   return async dispatch => {
     try {
-      const res = await axios.delete(`${url}/city/${cityId}`);
+      const res = await axios.delete(
+        `${url}/profile/${profileId}/city/${cityId}`
+      );
 
       dispatch({
         type: UNSAVE_CITY,
