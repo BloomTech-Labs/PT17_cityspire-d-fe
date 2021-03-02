@@ -3,8 +3,18 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
-import { Menu, Dropdown, Avatar, Button, Image, Space } from 'antd';
-import { UserOutlined, DownOutlined } from '@ant-design/icons';
+import {
+  Row,
+  Col,
+  Menu,
+  Dropdown,
+  Avatar,
+  Button,
+  Image,
+  Space,
+  Divider,
+} from 'antd';
+import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',
@@ -56,22 +66,42 @@ const Header = () => {
   );
 
   return (
-    <header style={HeaderStyle}>
-      <a href="/">
-        <Image preview={false} src={cityspireLogo} style={{ width: '120px' }} />
-      </a>
+    <Row style={HeaderStyle}>
+      <Col>
+        <a href="/">
+          <Image
+            preview={false}
+            src={cityspireLogo}
+            style={{ width: '120px' }}
+          />
+        </a>
+      </Col>
 
-      <Space size="large">
-        <Dropdown overlay={menu} trigger={['click']}>
-          <Space size="small" onClick={e => e.preventDefault()}>
-            <Avatar size="small" icon={<UserOutlined />} />
-            {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
+      <Col>
+        <Row>
+          <Space size="large">
+            <Dropdown overlay={menu} trigger={['click']}>
+              <Space
+                size="small"
+                onClick={e => e.preventDefault()}
+                style={{ cursor: 'pointer' }}
+              >
+                <Avatar size="small" icon={<UserOutlined />} />
+                {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
+              </Space>
+            </Dropdown>
+            <Divider type="vertical" />
+            <a href="/" style={{ color: 'grey' }}>
+              <SearchOutlined
+                style={{ cursor: 'pointer', fontSize: '1.15rem' }}
+              />
+            </a>
+            <Divider type="vertical" />
+            <Button onClick={() => authService.logout()}>Logout</Button>
           </Space>
-        </Dropdown>
-
-        <Button onClick={() => authService.logout()}>Logout</Button>
-      </Space>
-    </header>
+        </Row>
+      </Col>
+    </Row>
   );
 };
 
