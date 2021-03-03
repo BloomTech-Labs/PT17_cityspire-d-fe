@@ -73,7 +73,7 @@ function RenderHomePage() {
         </strong>
       </h7>
       <Content
-        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.05rem' }}
+        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
       </Content>
@@ -83,7 +83,7 @@ function RenderHomePage() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            margin: '2%',
+            margin: '1%',
             textAlign: 'center',
             fontSize: '2rem',
           }}
@@ -112,6 +112,7 @@ function RenderHomePage() {
           color: 'white',
           width: '30%',
           margin: 'auto 35%',
+          marginBottom: '2%',
         }}
       >
         Learn more about US States
