@@ -2,25 +2,26 @@ import {
   FETCHING_CITIES_START,
   FETCHING_CITIES_SUCCESS,
   FETCHING_CITIES_ERROR,
-  SAVE_CITY,
-  UNSAVE_CITY,
+  PIN_CITY,
+  UNPIN_CITY,
 } from '../actions';
 
 const initialState = {
   isFetching: false,
   savedCities: [],
+  viewCity: {},
   isSaved: false,
   error: null,
 };
 export const cityOperationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_CITY:
+    case PIN_CITY:
       return {
         ...state,
         savedCities: [...state.savedCities, action.payload],
         isSaved: true,
       };
-    case UNSAVE_CITY:
+    case UNPIN_CITY:
       return {
         ...state,
         savedCities: state.savedCities.filter(city => {
@@ -46,6 +47,7 @@ export const cityOperationsReducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload,
       };
+
     default:
       return state;
   }

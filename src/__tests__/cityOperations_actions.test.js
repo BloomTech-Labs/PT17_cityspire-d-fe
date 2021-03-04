@@ -1,8 +1,8 @@
 import moxios from 'moxios';
 import {
   fetchSavedCity,
-  saveCity,
-  unsaveCity,
+  pinCity,
+  unpinCity,
 } from '../state/actions/cityOperations';
 import { makeMockStore } from '../utils/makeMockStore';
 
@@ -37,7 +37,7 @@ describe('fetchSavedCity', () => {
   });
 });
 
-describe('saveCity', () => {
+describe('pinCity', () => {
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
 
@@ -59,9 +59,9 @@ describe('saveCity', () => {
       request.respondWith({ status: 200, response: { cityData } });
     });
 
-    store.dispatch(saveCity()).then(() => {
+    store.dispatch(pinCity()).then(() => {
       const actionsCalled = store.getActions();
-      expect(actionsCalled[0]).toEqual(saveCity());
+      expect(actionsCalled[0]).toEqual(pinCity());
     });
   });
 });
@@ -88,9 +88,9 @@ describe('unsaveCity', () => {
       request.respondWith({ status: 200, response: {} });
     });
 
-    store.dispatch(unsaveCity(cityData.id)).then(() => {
+    store.dispatch(unpinCity(cityData.id)).then(() => {
       const actionsCalled = store.getActions();
-      expect(actionsCalled[0]).toEqual(unsaveCity(cityData.id));
+      expect(actionsCalled[0]).toEqual(unpinCity(cityData.id));
     });
   });
 });

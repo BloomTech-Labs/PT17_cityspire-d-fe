@@ -3,8 +3,8 @@ import {
   FETCHING_CITIES_START,
   FETCHING_CITIES_SUCCESS,
   FETCHING_CITIES_ERROR,
-  SAVE_CITY,
-  UNSAVE_CITY,
+  PIN_CITY,
+  UNPIN_CITY,
 } from '../state/actions/cityOperations';
 
 const initialState = {
@@ -72,10 +72,10 @@ describe('cityOperations reducer', () => {
       error: { error: 'Not Found' },
     });
   });
-  it('should handle SAVE_CITY', () => {
+  it('should handle PIN_CITY', () => {
     expect(
       cityOperationsReducer(initialState, {
-        type: SAVE_CITY,
+        type: PIN_CITY,
         payload: {
           city: 'Olathe',
           state: 'Kansas',
@@ -104,10 +104,10 @@ describe('cityOperations reducer', () => {
       isSaved: true,
     });
   });
-  it('should handle UNSAVE_CITY', () => {
+  it('should handle UNPIN_CITY', () => {
     expect(
       cityOperationsReducer(initialState, {
-        type: UNSAVE_CITY,
+        type: UNPIN_CITY,
         payload: {
           id: 2,
           city: 'Olathe',
