@@ -6,6 +6,8 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 You can find the deployed project at [g.cityspire.dev](https://g.cityspire.dev/).
 
+The "Learn more about US States" link on the home page links to a deployed netlify project [CitySpire: US States](https://cityspire-states.netlify.app/). The GitHub project for this is: [US-States](https://github.com/BritneyParkerson/US-States) in case anyone wants to continue using it.
+
 ## Contributors
 
 |                                                          [Shomari Roberts](https://github.com/slroberts)                                                          |                                                         [Britney Parkerson](https://github.com/BritneyParkerson)                                                         |

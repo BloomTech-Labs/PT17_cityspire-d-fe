@@ -73,10 +73,50 @@ function RenderHomePage() {
         </strong>
       </h1>
       <Content
-        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.05rem' }}
+        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
       >
         <SearchForm />
       </Content>
+
+      <Space size="large" align="center">
+        <p
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '1%',
+            textAlign: 'center',
+            fontSize: '2rem',
+          }}
+        >
+          Searching for the perfect dream home but don't know where to start?
+          You're in the right place! Let CitySpire lead you to the desires of
+          your heart!
+        </p>
+        <Image
+          preview={false}
+          src={map}
+          style={{
+            width: '100%',
+            height: '100x',
+            marginBottom: '5%',
+          }}
+        />{' '}
+      </Space>
+
+      <a
+        href="https://cityspire-states.netlify.app/"
+        style={{
+          textAlign: 'center',
+          fontSize: '2rem',
+          background: 'navy',
+          color: 'white',
+          width: '30%',
+          margin: 'auto 35%',
+          marginBottom: '2%',
+        }}
+      >
+        Learn more about US States
+      </a>
 
       <Carousel
         autoplay
@@ -112,44 +152,6 @@ function RenderHomePage() {
         </div>
       </Carousel>
 
-      <a
-        href="https://cityspire-states.netlify.app/"
-        style={{
-          textAlign: 'center',
-          fontSize: '2rem',
-          background: 'navy',
-          color: 'white',
-          width: '30%',
-          margin: 'auto 35%',
-        }}
-      >
-        Learn more about US States
-      </a>
-
-      <Space size="large" align="center">
-        <p
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '2%',
-            textAlign: 'center',
-            fontSize: '2rem',
-          }}
-        >
-          Searching for the perfect dream home but don't know where to start?
-          You're in the right place! Let CitySpire lead you to the desires of
-          your heart!
-        </p>
-        <Image
-          preview={false}
-          src={map}
-          style={{
-            width: '100%',
-            height: '100x',
-            marginBottom: '5%',
-          }}
-        />{' '}
-      </Space>
       <Image
         preview={false}
         src={citylife}
