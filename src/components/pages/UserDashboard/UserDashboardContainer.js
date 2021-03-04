@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-  fetchSavedCity,
-  unsaveCity,
-  fetchCityData,
-} from '../../../state/actions';
+import { fetchSavedCity, unpinCity } from '../../../state/actions';
 
 import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
@@ -22,10 +18,14 @@ const spinStyle = {
 const UserDashboardContainer = ({
   fetchSavedCity,
   savedCities,
-  unsaveCity,
+  unpinCity,
   isFetching,
 }) => {
   const { push } = useHistory();
+
+  const [cityAndState, setCityAndState] = useState(
+    JSON.parse(localStorage.getItem('cityAndState'))
+  );
 
   useEffect(() => {
     fetchSavedCity(localStorage.getItem('token'));
@@ -34,19 +34,19 @@ const UserDashboardContainer = ({
   const deleteNotification = () => {
     notification.open({
       message: 'City Removed',
-      description: `${savedCities.city}, ${savedCities.state}, has been has been removed from Pinned Cities.`,
+      description: `${cityAndState.city}, ${cityAndState.state} has been has been removed from Pinned Cities.`,
     });
   };
 
   const handleRemoveCity = id => {
-    fetchSavedCity(localStorage.getItem('token'));
-    unsaveCity(localStorage.getItem('token'), id);
+    unpinCity(localStorage.getItem('token'), id);
     deleteNotification();
   };
 
   const handleOnCityClick = cityAndState => {
-    fetchCityData(cityAndState);
-    push(`/${cityAndState.city}-${cityAndState.state}`);
+    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
+    setCityAndState(localStorage.getItem('cityAndState'));
+    push(`/pinned/${cityAndState.state}/${cityAndState.city}`);
   };
 
   return (
@@ -61,6 +61,7 @@ const UserDashboardContainer = ({
           savedCities={savedCities}
           handleRemoveCity={handleRemoveCity}
           handleOnCityClick={handleOnCityClick}
+          id={localStorage.getItem('token')}
         />
       )}
       <Footer />
@@ -78,5 +79,5 @@ const mapStateToProps = state => {
 };
 export default connect(mapStateToProps, {
   fetchSavedCity,
-  unsaveCity,
+  unpinCity,
 })(UserDashboardContainer);
