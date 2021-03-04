@@ -15,6 +15,7 @@ import { ExampleDataViz } from './pages/ExampleDataViz';
 import { config } from '../utils/oktaConfig';
 import { LoadingComponent } from './common';
 import { UserDashboardPage } from './pages/UserDashboard';
+import { PinnedCitiesPage } from './pages/PinnedCities';
 
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
@@ -27,7 +28,7 @@ const App = () => {
     history.push('/login');
   };
 
-  const { id } = useParams();
+  const { id, city, state } = useParams();
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
@@ -43,12 +44,21 @@ const App = () => {
         <SecureRoute path="/example-list" component={ExampleListPage} />
 
         <SecureRoute path="/profile-list" component={ProfileListPage} />
+
         <SecureRoute path="/datavis" component={ExampleDataViz} />
-        <SecureRoute path={`/profile/:id/dashboard`} exact>
+
+        <SecureRoute path="/profile/:id/dashboard" exact>
           <UserDashboardPage id={id} />
         </SecureRoute>
 
-        <SecureRoute component={CitySearchResultsPage} />
+        <SecureRoute path="/:state/:city" exact>
+          <CitySearchResultsPage city={city} state={state} />
+        </SecureRoute>
+
+        <SecureRoute path="/pinned/:state/:city" exact>
+          <PinnedCitiesPage city={city} state={state} />
+        </SecureRoute>
+
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
