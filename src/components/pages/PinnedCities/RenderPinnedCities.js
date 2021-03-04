@@ -1,16 +1,7 @@
 import React from 'react';
 import { MapboxGLMap } from '../../common';
 
-import {
-  Statistic,
-  Row,
-  Col,
-  Card,
-  PageHeader,
-  Button,
-  Carousel,
-  Image,
-} from 'antd';
+import { Statistic, Row, Col, Card, PageHeader, Button } from 'antd';
 
 import {
   DollarCircleTwoTone,
@@ -20,15 +11,9 @@ import {
   CarTwoTone,
   GoldTwoTone,
   PieChartTwoTone,
-  ThunderboltTwoTone,
   PushpinFilled,
   EnvironmentFilled,
 } from '@ant-design/icons';
-
-import citylife from '../../../assets/imgs/citylife.jpg';
-import States1 from '../../../assets/imgs/States1.png';
-import States2 from '../../../assets/imgs/States2.png';
-import { ScaleControl } from 'mapbox-gl';
 
 const StatisticStyle = {
   fontSize: '1.5rem',
@@ -38,15 +23,6 @@ const RowStyle = {
   margin: '5vw auto',
   padding: '0 5vw',
   maxWidth: '1366px',
-};
-
-const contentStyle = {
-  height: '395px',
-  color: '#fff',
-  lineHeight: '30px',
-  textAlign: 'center',
-  background: '#f0f2f5',
-  margin: '1%',
 };
 
 const RenderPinnedCities = ({ savedCities, handleRemoveCity }) => {
