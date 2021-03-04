@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {
-  fetchCityData,
-  fetchSavedCity,
-  saveCity,
-  unsaveCity,
-} from '../../../state/actions';
+import { fetchCityData, pinCity, fetchSavedCity } from '../../../state/actions';
 import RenderCitySearchResults from './RenderCitySearchResults';
 import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
@@ -19,33 +14,28 @@ const spinStyle = {
   margin: 'auto',
 };
 
-function CitySearchResultsContainer({
+const CitySearchResultsContainer = ({
   cityData,
   fetchCityData,
-  saveCity,
-  unsaveCity,
+  fetchSavedCity,
+  pinCity,
   isFetching,
   isSaved,
-  savedCities,
-  fetchSavedCity,
-}) {
+}) => {
   const { push } = useHistory();
 
+  const [cityAndState, setCityAndState] = useState(
+    localStorage.getItem('cityAndState')
+  );
+
   useEffect(() => {
-    fetchCityData(localStorage.getItem('cityAndState'));
-  }, [fetchCityData]);
+    fetchCityData(cityAndState);
+  }, [fetchCityData, cityAndState]);
 
   const savedNotification = () => {
     notification.open({
       message: 'City Pinned',
       description: `${cityData.city.city}, ${cityData.city.state}, has been pinned and can be viewed on the Pinned Cities page.`,
-    });
-  };
-
-  const deleteNotification = () => {
-    notification.open({
-      message: 'City Removed',
-      description: `${cityData.city.city}, ${cityData.city.state}, has been has been removed from Pinned Cities.`,
     });
   };
 
@@ -60,21 +50,21 @@ function CitySearchResultsContainer({
       livability: cityData.livability,
       population: cityData.population,
       diversity_index: cityData.diversity_index,
+      latitude: cityData.latitude,
+      longitude: cityData.longitude,
       profile_id: localStorage.getItem('token'),
     };
-    saveCity(cityInfo);
+    pinCity(localStorage.getItem('token'), cityInfo);
     savedNotification();
-  };
-
-  const handleRemoveCity = id => {
     fetchSavedCity(localStorage.getItem('token'));
-    unsaveCity(localStorage.getItem('token'), id);
-    deleteNotification();
+    push(`/pinned/${cityInfo.state}/${cityInfo.city}`);
+    console.log(cityInfo);
   };
 
   const handleOnCityClick = cityAndState => {
-    fetchCityData(cityAndState);
-    push(`/${cityAndState.city}-${cityAndState.state}`);
+    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
+    setCityAndState(localStorage.getItem('cityAndState'));
+    push(`/${cityAndState.state}/${cityAndState.city}`);
   };
 
   return (
@@ -89,16 +79,17 @@ function CitySearchResultsContainer({
           <RenderCitySearchResults
             cityData={cityData}
             handleSaveCity={handleSaveCity}
-            handleRemoveCity={handleRemoveCity}
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
+            city={cityAndState.city}
+            state={cityAndState.state}
           />
           <Footer />
         </div>
       )}
     </>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {
@@ -112,6 +103,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   fetchCityData,
   fetchSavedCity,
-  saveCity,
-  unsaveCity,
+  pinCity,
 })(CitySearchResultsContainer);

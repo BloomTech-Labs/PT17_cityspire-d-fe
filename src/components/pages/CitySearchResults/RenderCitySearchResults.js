@@ -51,8 +51,6 @@ const contentStyle = {
 const RenderCitySearchResults = ({
   cityData,
   handleSaveCity,
-  handleRemoveCity,
-  isSaved,
   handleOnCityClick,
 }) => {
   return (
@@ -80,26 +78,15 @@ const RenderCitySearchResults = ({
         </Col>
 
         <Col style={{ paddingTop: '4px' }}>
-          {isSaved ? (
-            <Button
-              type="secondary"
-              shape="round"
-              size="large"
-              onClick={() => handleRemoveCity(cityData.id)}
-            >
-              <PushpinFilled /> Remove City
-            </Button>
-          ) : (
-            <Button
-              type="primary"
-              shape="round"
-              size="large"
-              onClick={() => handleSaveCity()}
-            >
-              <PushpinFilled />
-              Pin City
-            </Button>
-          )}
+          <Button
+            type="primary"
+            shape="round"
+            size="large"
+            onClick={() => handleSaveCity()}
+          >
+            <PushpinFilled />
+            Pin City
+          </Button>
         </Col>
       </Row>
 
@@ -211,12 +198,12 @@ const RenderCitySearchResults = ({
         <div>
           <h3 style={contentStyle}>
             {' '}
-            <Image class="Carousel" preview={false} src={States1} />
+            <Image className="Carousel" preview={false} src={States1} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={States2} />
+            <Image className="Carousel" preview={false} src={States2} />
           </h3>
         </div>
       </Carousel>
