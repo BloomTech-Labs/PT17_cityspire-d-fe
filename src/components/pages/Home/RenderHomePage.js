@@ -29,7 +29,7 @@ function RenderHomePage() {
     <Layout className="layout">
       <Header />
       <Image
-        class="cities"
+        className="cities"
         preview={false}
         src={cities}
         style={{ width: '100%', height: '30vh', marginBottom: '3rem' }}
@@ -46,7 +46,7 @@ function RenderHomePage() {
       >
         {' '}
       </Space>
-      <h7
+      <h1
         style={{
           fontSize: '3rem',
           fontFamily: 'Hachi Maru Pop, cursive',
@@ -71,7 +71,7 @@ function RenderHomePage() {
         >
           CitySpire
         </strong>
-      </h7>
+      </h1>
       <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.05rem' }}
       >
@@ -87,27 +87,27 @@ function RenderHomePage() {
         <div>
           <h3 style={contentStyle}>
             {' '}
-            <Image class="Carousel" preview={false} src={city1} />
+            <Image className="Carousel" preview={false} src={city1} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={city2} />
+            <Image className="Carousel" preview={false} src={city2} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={city3} />
+            <Image className="Carousel" preview={false} src={city3} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={city4} />
+            <Image className="Carousel" preview={false} src={city4} />
           </h3>
         </div>
         <div>
           <h3 style={contentStyle}>
-            <Image class="Carousel" preview={false} src={city5} />
+            <Image className="Carousel" preview={false} src={city5} />
           </h3>
         </div>
       </Carousel>
