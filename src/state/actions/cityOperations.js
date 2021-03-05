@@ -52,7 +52,7 @@ export const unpinCity = (profileId, cityId) => {
 
       dispatch({
         type: UNPIN_CITY,
-        payload: res.id,
+        payload: res.data,
       });
     } catch (err) {
       console.error(err.message);
