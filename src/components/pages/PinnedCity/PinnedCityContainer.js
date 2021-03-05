@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { fetchSavedCity, unpinCity } from '../../../state/actions';
 
 import { Spin, notification } from 'antd';
-import { Header, Footer } from '../../common/';
-import RenderPinnedCities from './RenderPinnedCities';
+import { Header, Footer } from '../../common';
+import RenderPinnedCity from './RenderPinnedCity';
 
 const spinStyle = {
   textAlign: 'center',
@@ -53,7 +53,7 @@ const PinnedCitiesContainer = ({
           <Spin tip="Loading..." size="large"></Spin>
         </div>
       ) : (
-        <RenderPinnedCities
+        <RenderPinnedCity
           savedCities={savedCities}
           handleRemoveCity={handleRemoveCity}
         />
