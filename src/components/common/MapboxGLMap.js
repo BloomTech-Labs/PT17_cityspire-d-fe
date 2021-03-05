@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mapboxConfig } from '../../utils/mapboxConfig';
 import ReactMapGL from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -16,7 +17,7 @@ const MapboxGLMap = ({ lat, long }) => {
       <ReactMapGL
         {...viewport}
         mapStyle="mapbox://styles/mapbox/streets-v11"
-        mapboxApiAccessToken="pk.eyJ1Ijoic2xyb2JlcnRzIiwiYSI6ImNrbGppcTh2NTJzMWcybnF0bWo4M21mM2IifQ.84IfpleLAbG5RRLto8WHyA"
+        mapboxApiAccessToken={mapboxConfig.key}
         width="100%"
         height="50vh"
         onViewportChange={viewport => {
