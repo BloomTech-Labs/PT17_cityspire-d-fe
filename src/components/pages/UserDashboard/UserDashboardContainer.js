@@ -41,6 +41,8 @@ const UserDashboardContainer = ({
   const handleRemoveCity = id => {
     unpinCity(localStorage.getItem('token'), id);
     deleteNotification();
+    fetchSavedCity(localStorage.getItem('token'));
+    window.location.reload();
   };
 
   const handleOnCityClick = cityAndState => {
