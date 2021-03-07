@@ -42,3 +42,7 @@ Right now you have to enter specifically city, state initials ex. New York, NY (
 # Should only display on one city in RenderPinnedCity
 
 When the user pins a city or clicks on the view city from the dashboard of pinned cities they are only supposed to see the pinned city that was pinned/clicked but right now it shows a list of all the cities pinned.
+
+# User can pin the same city more than once
+
+The user should only be able to pin a city to their pinned cities once.
