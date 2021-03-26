@@ -12,7 +12,7 @@ const Footer = () => {
     <footer
       style={{ backgroundColor: 'white', textAlign: 'center', padding: '1rem' }}
     >
-      Cityspire ©{date} Created by Labspt15-cityspire-g
+      Cityspire ©{date} Created by Labspt17-cityspire-g
     </footer>
   );
 };
