@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
-import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
+import cityspireLogo from '../../assets/imgs/Cityspire_logo_dark.png';
 import {
   Row,
   Col,
