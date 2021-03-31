@@ -12,7 +12,7 @@ const ProfileList = () => {
   const { authState } = useOktaAuth();
 
   return (
-    <List
+    <ProfileList
       // Here we are passing our Axios request helper function as a callback.
       getItemsData={() => getProfileData(authState)}
       // Here we are passing in a component we want to show whilst waiting for our API request
