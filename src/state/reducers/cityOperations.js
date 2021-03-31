@@ -18,6 +18,7 @@ export const cityOperationsReducer = (state = initialState, action) => {
       return {
         ...state,
         savedCities: [...state.savedCities, action.payload],
+       
         isSaved: true,
       };
     case UNPIN_CITY:
