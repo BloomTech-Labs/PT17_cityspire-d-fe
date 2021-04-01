@@ -26,12 +26,12 @@ const SearchForm = ({ fetchCityData }) => {
   const [searchValue, setSearchValue] = useState('');
 
   // Split search value right by the common
-  const splitSearchValue = searchValue.toLowerCase().split(', ');
+  const splitSearchValue = searchValue.toLowerCase().split(',');
 
   // Set the split value to city and state
   const cityAndState = {
-    city: splitSearchValue[0],
-    state: splitSearchValue[1],
+    city: splitSearchValue[0].trim(),
+    state: splitSearchValue[1] ? splitSearchValue[1].trim() : '',
   };
 
   const { Search } = Input;
