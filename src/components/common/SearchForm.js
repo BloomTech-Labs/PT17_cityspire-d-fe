@@ -14,7 +14,7 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '55vw',
+  width: '60vw',
   minWidth: '24rem',
   maxWidth: '80rem',
   padding: '1rem',
@@ -63,9 +63,9 @@ const SearchForm = ({ fetchCityData }) => {
           <p
             style={{
               fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
+              fontFamily: 'Hachi Maru Pop',
               fontStyle: 'italic',
-              marginTop: '-8%',
+              marginTop: '-7%',
               backgroundColor: '#5946B2',
               paddingTop: '2rem',
               color: 'white',
