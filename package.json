@@ -8,18 +8,12 @@
     "@craco/craco": "^5.6.4",
     "@okta/okta-react": "^3.0.2",
     "@okta/okta-signin-widget": "^4.1.2",
-<<<<<<< HEAD
-=======
     "@types/react-router-dom": "^5.1.7",
->>>>>>> e884b8896995f7665704d352f0a13593dda01ba2
     "antd": "^4.14.1",
     "axios": "^0.21.1",
     "craco-less": "^1.17.0",
     "customize-cra": "^1.0.0",
-<<<<<<< HEAD
     "history": "^5.0.0",
-=======
->>>>>>> e884b8896995f7665704d352f0a13593dda01ba2
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
     "mapbox-gl": "^2.1.1",
