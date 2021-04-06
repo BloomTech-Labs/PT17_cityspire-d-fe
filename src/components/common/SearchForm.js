@@ -14,7 +14,11 @@ const ColStyle = {
 };
 
 const SearchStyle = {
+<<<<<<< HEAD
   width: '60vw',
+=======
+  width: '55vw',
+>>>>>>> e884b8896995f7665704d352f0a13593dda01ba2
   minWidth: '24rem',
   maxWidth: '80rem',
   padding: '1rem',

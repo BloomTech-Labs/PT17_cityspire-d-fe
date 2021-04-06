@@ -7,7 +7,6 @@ import {
   getByTestId,
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-
 import { ProfileListPage } from '../components/pages/ProfileList';
 jest.mock('../api', () => {
   return { getProfileData: () => Promise.resolve([]) };
@@ -22,7 +21,6 @@ jest.mock('@okta/okta-react', () => ({
     };
   },
 }));
-
 describe('<ProfileListContainer />', () => {
   test('renders a loading state upon loading and calling for profiles', async () => {
     const promise = Promise.resolve();
