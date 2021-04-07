@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   render,
-  // screen,
-  // waitForElementToBeRemoved,
+  screen,
+  waitForElementToBeRemoved,
   act,
-  // getByTestId,
+  getByTestId,
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ProfileListPage } from '../components/pages/ProfileList';
