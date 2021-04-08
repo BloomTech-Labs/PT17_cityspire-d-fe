@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { mapboxConfig } from '../../utils/mapboxConfig';
 import ReactMapGL from 'react-map-gl';
-import mapboxgl from 'mapbox-gl';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp-worker';
+mapboxgl.workerClass = 'worker-loader'.default;
 
 const MapboxGLMap = ({ lat, long }) => {
   const [viewport, setViewport] = useState({

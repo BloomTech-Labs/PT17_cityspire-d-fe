@@ -4,7 +4,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import { config } from '../../../utils/oktaConfig';
 
-import cityspireLogo from '../../../assets/imgs/cityspireLogo.png';
+import cityspireLogo from '../../../assets/imgs/Cityspire_logo_dark.png';
 
 const LoginContainer = () => {
   useEffect(() => {

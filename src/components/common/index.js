@@ -1,6 +1,5 @@
 import FormButton from './FormButton';
 import FormInput from './FormInput';
-import List from './List';
 import LoadingComponent from './LoadingComponent';
 import Button from './Button';
 import Header from './Header';
@@ -12,7 +11,6 @@ import MapboxGLMap from './MapboxGLMap';
 export {
   FormButton,
   FormInput,
-  List,
   LoadingComponent,
   Button,
   Header,
