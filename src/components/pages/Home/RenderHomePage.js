@@ -49,16 +49,16 @@ function RenderHomePage() {
       <h1
         style={{
           fontSize: '3rem',
-          fontFamily: 'Hachi Maru Pop, cursive',
+          fontFamily: 'Hachi Maru Pop',
           marginTop: '-7%',
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
           textAlign: 'center',
           position: 'relative',
-          backgroundColor: '#FED85D',
+          backgroundColor: '#86658C',
           border: '2px dotted #5946B2',
-          textShadow: '1px 1px 10px #5946B2',
+          textShadow: '1px 1px 10px #b4a9e8',
         }}
       >
         Aspire to your dream home with <br />{' '}
@@ -66,7 +66,6 @@ function RenderHomePage() {
           style={{
             fontSize: '5rem',
             marginTop: '-2%',
-            textDecoration: 'underline',
           }}
         >
           CitySpire
