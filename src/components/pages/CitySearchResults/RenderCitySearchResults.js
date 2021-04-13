@@ -13,6 +13,8 @@ import {
 } from 'antd';
 
 import {
+  DashboardTwoTone,
+  ProjectTwoTone,
   DollarCircleTwoTone,
   SafetyCertificateTwoTone,
   SmileTwoTone,
@@ -146,6 +148,16 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Busability"
+              value={cityData.busability}
+              valueStyle={StatisticStyle}
+              prefix={<DashboardTwoTone twoToneColor="green" />}
+            />
+          </Card>
+        </Col>
         <Col xs={24} sm={12} md={8}>
           <Card>
             <Statistic
@@ -154,6 +166,16 @@ const RenderCitySearchResults = ({
               valueStyle={StatisticStyle}
               prefix={<SmileTwoTone />}
               suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Bikeability"
+              value={cityData.bikeability}
+              valueStyle={StatisticStyle}
+              prefix={<ProjectTwoTone twoToneColor="blue" />}
             />
           </Card>
         </Col>

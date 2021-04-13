@@ -8,7 +8,7 @@ const MapboxGLMap = ({ lat, long }) => {
   const [viewport, setViewport] = useState({
     latitude: lat,
     longitude: long,
-    zoom: 11,
+    zoom: 12,
   });
 
   return (

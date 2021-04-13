@@ -147,7 +147,7 @@ const RenderPinnedCities = ({ savedCities, handleRemoveCity }) => {
               </Col>
             </Row>
           </div>
-          ))}
+          ))
         </div>
       ))}
     </>
