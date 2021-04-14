@@ -50,7 +50,7 @@ function RenderHomePage() {
         style={{
           fontSize: '3rem',
           fontFamily: 'Hachi Maru Pop',
-          marginTop: '-7%',
+          marginTop: '-5%',
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',

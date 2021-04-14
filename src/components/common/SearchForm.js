@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchCityData } from '../../state/actions';
 import { useHistory } from 'react-router-dom';
-import { Row, Col, Input } from 'antd';
+import { Row, Col, Input, Space } from 'antd';
 
 const ColStyle = {
   display: 'flex',
@@ -14,10 +14,7 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '80vw',
-  minWidth: '24rem',
-  maxWidth: '80rem',
-  padding: '1rem',
+  width: '800px',
 };
 
 const SearchForm = ({ fetchCityData }) => {
@@ -51,21 +48,23 @@ const SearchForm = ({ fetchCityData }) => {
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          <Search
-            placeholder="Enter city or state"
-            allowClear
-            onSearch={() => onSubmit()}
-            size="large"
-            style={SearchStyle}
-            value={searchValue.city}
-            onChange={handleChange}
-          />
+          <Space direction="vertical">
+            <Search
+              placeholder="Enter city or state"
+              onSearch={() => onSubmit()}
+              size="large"
+              style={SearchStyle}
+              value={searchValue.city}
+              onChange={handleChange}
+            />
+          </Space>
           <p
             style={{
+              width: '800px',
               fontSize: '2.5rem',
               fontFamily: 'Hachi Maru Pop',
               fontStyle: 'italic',
-              marginTop: '-5%',
+              marginTop: '-4%',
               backgroundColor: '#5946B2',
               paddingTop: '2rem',
               color: 'white',

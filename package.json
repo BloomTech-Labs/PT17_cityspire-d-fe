@@ -1,7 +1,6 @@
 {
   "name": "cityspire-fe",
   "version": "0.1.0",
-  "private": false,
   "license": "MIT",
   "repository": "github:Lambda-School-Labs/cityspire-fe",
   "dependencies": {
@@ -11,6 +10,7 @@
     "@types/react-router-dom": "^5.1.7",
     "antd": "^4.14.1",
     "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
     "craco-less": "^1.17.0",
     "customize-cra": "^1.0.0",
     "history": "^5.0.0",
@@ -97,6 +97,7 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-prop-type-error": "^1.1.0",
     "lint-staged": "^10.2.11",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "webpack-cli": "3"
   }
 }
