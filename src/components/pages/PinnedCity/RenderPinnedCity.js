@@ -49,7 +49,7 @@ const RenderPinnedCities = ({ savedCities, handleRemoveCity }) => {
                         color: 'rgb(24, 144, 255)',
                       }}
                     />
-                    {data
+                    {savedCities
                       ? `${data.city.city}, ${data.city.state}`
                       : 'Loading...'}
                   </h1>
