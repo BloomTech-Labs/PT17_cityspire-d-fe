@@ -55,6 +55,66 @@ const RenderCitySearchResults = ({
   handleSaveCity,
   handleOnCityClick,
 }) => {
+  const weatherData = {
+    coord: {
+      lon: 13.4105,
+      lat: 52.5244,
+    },
+    weather: [
+      {
+        id: 803,
+        main: 'Clouds',
+        description: 'broken clouds',
+        icon: '04d',
+      },
+    ],
+    base: 'stations',
+    main: {
+      temp: 286.12,
+      feels_like: 285.01,
+      temp_min: 285.37,
+      temp_max: 287.04,
+      pressure: 1015,
+      humidity: 59,
+    },
+    visibility: 10000,
+    wind: {
+      speed: 0.89,
+      deg: 257,
+      gust: 2.68,
+    },
+    rain: {
+      '1h': 0.1,
+    },
+    clouds: {
+      all: 78,
+    },
+    dt: 1617257117,
+    sys: {
+      type: 3,
+      id: 2011538,
+      country: 'DE',
+      sunrise: 1617252024,
+      sunset: 1617298781,
+    },
+    timezone: 7200,
+    id: 2950159,
+    name: 'Berlin',
+    cod: 200,
+  };
+
+  const jobsData = {
+    'Jobs Listed': 'number_jobs',
+    'Job Title': 'job_title',
+    Company: 'company',
+    Location: 'job_location',
+    'Date Posted': 'post_date',
+    'Extract Date': 'extract_date',
+    Description: 'job_summary',
+    Salary: 'salary',
+    'Job Url': 'job_url',
+  };
+
   return (
     <>
       <Row
@@ -97,6 +157,26 @@ const RenderCitySearchResults = ({
       <Row style={RowStyle} wrap="true">
         <Col xs={24}>
           <h2>Cityspire City Data</h2>
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Weather"
+              value={weatherData.temp}
+              valueStyle={StatisticStyle}
+              prefix={<CloudTwoTone twoToneColor="orange" />}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Jobs"
+              value={jobsData.number_jobs}
+              valueStyle={StatisticStyle}
+              prefix={<ProjectTwoTone twoToneColor="blue" />}
+            />
+          </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <Card>
