@@ -36,17 +36,22 @@ const RenderUserDashboard = ({
               </h2>
             </Col>
 
-            {savedCities[key].map((item, i) => (
-              <Col sm={24} md={12} lg={8} key={i}>
-                <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }} key={i}>
+            {savedCities.map(data => (
+              <Col
+                sm={24}
+                md={12}
+                lg={8}
+                key={`${data.city.city}-${data.city.state}`}
+              >
+                <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }}>
                   <Row>
                     <Col xs={24}>
-                      {item.city}, {item.state}
+                      {data.city.city}, {data.city.state}
                     </Col>
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
                         title="Rental Price"
-                        value={item.rental_price}
+                        value={data.rental_price}
                         prefix={<DollarCircleTwoTone twoToneColor="green" />}
                         valueStyle={StatisticStyle}
                       />
@@ -54,7 +59,7 @@ const RenderUserDashboard = ({
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
                         title="Walkability"
-                        value={item.walkability}
+                        value={data.walkability}
                         prefix={<SmileTwoTone />}
                         suffix="/ 100"
                         valueStyle={StatisticStyle}
@@ -63,21 +68,21 @@ const RenderUserDashboard = ({
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic
                         title="Livability"
-                        value={item.livability}
+                        value={data.livability}
                         prefix={<HomeTwoTone twoToneColor="orange" />}
                         suffix="/ 100"
                         valueStyle={StatisticStyle}
                       />
                     </Col>
                     <Col>
-                      <Button onClick={() => handleRemoveCity(item.id)}>
+                      <Button onClick={() => handleRemoveCity(data.id)}>
                         Remove City
                       </Button>
                       <Button
                         onClick={() =>
                           handleOnCityClick({
-                            city: item.city,
-                            state: item.state,
+                            city: data.city,
+                            state: data.state,
                           })
                         }
                       >

@@ -3,7 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import { getProfileData } from '../../../api';
 
-import { List } from '../../common';
+// import { List } from '../../common';
 
 import RenderProfileListPage from './RenderProfileListPage';
 
