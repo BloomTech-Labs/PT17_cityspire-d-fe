@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import markdown from './story_descriptions/List.md';
 
 import React from 'react';
@@ -6,6 +7,7 @@ import { List as AntList, Card } from 'antd';
 
 import 'antd/dist/antd.css';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { title: 'List', parameters: { notes: markdown } };
 
 const handleFetchItems = () =>
