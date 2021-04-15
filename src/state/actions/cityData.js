@@ -9,14 +9,20 @@ export const fetchCityData = cityInfo => {
     dispatch({ type: FETCHING_CITY_START });
 
     try {
-      const res = await axios.post(
-        'http://cityspire.us-east-1.elasticbeanstalk.com/api/get_data',
+      const cityData = axios.post(
+        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_data',
+        cityInfo
+      );
+      const weatherData = axios.post(
+        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_current_temp',
         cityInfo
       );
 
+      const [cityRes, weatherRes] = await Promise.all([cityData, weatherData]);
+
       dispatch({
         type: FETCHING_CITY_SUCCESS,
-        payload: res.data,
+        payload: { city: cityRes.data, temp: weatherRes.data },
       });
     } catch (err) {
       dispatch({ type: FETCHING_CITY_ERROR, payload: err.detail });

@@ -14,54 +14,6 @@ const spinStyle = {
   margin: 'auto',
 };
 
-const fakeWeatherData = {
-  coord: {
-    lon: 13.4105,
-    lat: 52.5244,
-  },
-  weather: [
-    {
-      id: 803,
-      main: 'Clouds',
-      description: 'broken clouds',
-      icon: '04d',
-    },
-  ],
-  base: 'stations',
-  main: {
-    temp: 86.12,
-    feels_like: 85.01,
-    temp_min: 85.37,
-    temp_max: 87.04,
-    pressure: 1015,
-    humidity: 59,
-  },
-  visibility: 10000,
-  wind: {
-    speed: 0.89,
-    deg: 257,
-    gust: 2.68,
-  },
-  rain: {
-    '1h': 0.1,
-  },
-  clouds: {
-    all: 78,
-  },
-  dt: 1617257117,
-  sys: {
-    type: 3,
-    id: 2011538,
-    country: 'DE',
-    sunrise: 1617252024,
-    sunset: 1617298781,
-  },
-  timezone: 7200,
-  id: 2950159,
-  name: 'Berlin',
-  cod: 200,
-};
-
 const CitySearchResultsContainer = ({
   cityData,
   fetchCityData,
@@ -69,17 +21,13 @@ const CitySearchResultsContainer = ({
   pinCity,
   isFetching,
   isSaved,
+  currentTemp,
 }) => {
   const { push } = useHistory();
 
   const [cityAndState, setCityAndState] = useState(
     localStorage.getItem('cityAndState')
   );
-
-  const [weatherData, setWeatherData] = useState({});
-  useEffect(() => {
-    setWeatherData(fakeWeatherData);
-  }, []);
 
   useEffect(() => {
     fetchCityData(cityAndState);
@@ -130,7 +78,7 @@ const CitySearchResultsContainer = ({
           <Header />
           <RenderCitySearchResults
             cityData={cityData}
-            weatherData={weatherData}
+            currentTemp={currentTemp}
             handleSaveCity={handleSaveCity}
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
@@ -149,6 +97,7 @@ const mapStateToProps = state => {
     isFetching: state.cityData.isFetching,
     error: state.cityData.error,
     cityData: state.cityData.city,
+    currentTemp: state.cityData.currentTemp,
     savedCities: state.cityOperations.savedCities,
     isSaved: state.cityOperations.isSaved,
   };

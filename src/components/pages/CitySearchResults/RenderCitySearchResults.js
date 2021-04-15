@@ -54,7 +54,7 @@ const RenderCitySearchResults = ({
   cityData,
   handleSaveCity,
   handleOnCityClick,
-  weatherData,
+  currentTemp,
 }) => {
   const jobsData = {
     'Jobs Listed': 'number_jobs',
@@ -67,7 +67,6 @@ const RenderCitySearchResults = ({
     Salary: 'salary',
     'Job Url': 'job_url',
   };
-  console.log(weatherData);
   return (
     <>
       <Row
@@ -114,8 +113,8 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Average temperature "
-              value={weatherData.main && weatherData.main.temp}
+              title="Current Temperature"
+              value={currentTemp}
               valueStyle={StatisticStyle}
               prefix={<CloudTwoTone twoToneColor="orange" />}
             />
