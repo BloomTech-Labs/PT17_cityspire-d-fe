@@ -14,7 +14,7 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '600p',
+  width: '600px',
 };
 
 const SearchForm = ({ fetchCityData }) => {
