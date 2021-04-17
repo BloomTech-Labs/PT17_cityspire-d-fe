@@ -14,7 +14,7 @@ const ColStyle = {
 };
 
 const SearchStyle = {
-  width: '80vw',
+  width: '55vw',
   minWidth: '24rem',
   maxWidth: '80rem',
   padding: '1rem',
@@ -53,7 +53,7 @@ const SearchForm = ({ fetchCityData }) => {
         <div>
           <Search
             placeholder="Enter city or state"
-            allowClear
+            allowClearC
             onSearch={() => onSubmit()}
             size="large"
             style={SearchStyle}
@@ -62,12 +62,13 @@ const SearchForm = ({ fetchCityData }) => {
           />
           <p
             style={{
+              width: '1000px',
               fontSize: '2.5rem',
               fontFamily: 'Hachi Maru Pop',
               fontStyle: 'italic',
-              marginTop: '-5%',
+              marginTop: '-6.5%',
               backgroundColor: '#5946B2',
-              paddingTop: '2rem',
+              paddingTop: '3rem',
               color: 'white',
               border: '2px outset lightgrey',
               textShadow: '1px 1px 10px #FFCC33',
