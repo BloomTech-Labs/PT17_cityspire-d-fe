@@ -34,7 +34,7 @@
     "worker-loader": "^2.0.0"
   },
   "scripts": {
-    "start": "node --max_old_space_size=4096 node_modules/.bin/react-scripts start index.js",
+    "start": "react-scripts/bin/react-scripts.js",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen --collectCoverage",
     "eject": "react-scripts eject",
