@@ -52,7 +52,7 @@ const SearchForm = ({ fetchCityData }) => {
       <Col span={12} offset={6} style={ColStyle}>
         <div>
           <Search
-            placeholder="Enter city or state"
+            placeholder="Enter City and State i.e. New York, New York"
             allowClearC
             onSearch={() => onSubmit()}
             size="large"
@@ -74,7 +74,7 @@ const SearchForm = ({ fetchCityData }) => {
               textShadow: '1px 1px 10px #FFCC33',
             }}
           >
-            Search Your Desires
+            Search Your Desired City and State
           </p>
         </div>
       </Col>
