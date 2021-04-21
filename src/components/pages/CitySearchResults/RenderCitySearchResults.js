@@ -13,7 +13,7 @@ import {
 } from 'antd';
 
 import {
-  CloudTwoTone,
+  DashboardTwoTone,
   ProjectTwoTone,
   DollarCircleTwoTone,
   SafetyCertificateTwoTone,
@@ -25,7 +25,7 @@ import {
   ThunderboltTwoTone,
   PushpinFilled,
   EnvironmentFilled,
-  DashboardTwoTone,
+  CloudTwoTone,
 } from '@ant-design/icons';
 
 import citylife from '../../../assets/imgs/citylife.jpg';
@@ -117,7 +117,7 @@ const RenderCitySearchResults = ({
               title="Current Temperature"
               value={currentTemp}
               valueStyle={StatisticStyle}
-              prefix={<CloudTwoTone />}
+              prefix={<CloudTwoTone twoToneColor="orange" />}
             />
           </Card>
         </Col>
@@ -231,6 +231,27 @@ const RenderCitySearchResults = ({
               value={cityData.walkability}
               valueStyle={StatisticStyle}
               prefix={<SmileTwoTone />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <Statistic
+              title="Bikeability"
+              value={cityData.bikeability}
+              valueStyle={StatisticStyle}
+              prefix={<ProjectTwoTone twoToneColor="blue" />}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Livability"
+              value={cityData.livability}
+              valueStyle={StatisticStyle}
+              prefix={<HomeTwoTone twoToneColor="orange" />}
               suffix="/ 100"
             />
           </Card>
