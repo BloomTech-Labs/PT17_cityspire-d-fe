@@ -43,7 +43,7 @@ const RenderUserDashboard = ({
                 lg={8}
                 key={`${data.city.city}-${data.city.state}`}
               >
-                <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }}>
+                <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }} key={i}>
                   <Row>
                     <Col xs={24}>
                       {data.city.city}, {data.city.state}
