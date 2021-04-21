@@ -21,6 +21,7 @@ const CitySearchResultsContainer = ({
   pinCity,
   isFetching,
   isSaved,
+  currentTemp,
 }) => {
   const { push } = useHistory();
 
@@ -77,6 +78,7 @@ const CitySearchResultsContainer = ({
           <Header />
           <RenderCitySearchResults
             cityData={cityData}
+            currentTemp={currentTemp}
             handleSaveCity={handleSaveCity}
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
@@ -95,6 +97,7 @@ const mapStateToProps = state => {
     isFetching: state.cityData.isFetching,
     error: state.cityData.error,
     cityData: state.cityData.city,
+    currentTemp: state.cityData.currentTemp,
     savedCities: state.cityOperations.savedCities,
     isSaved: state.cityOperations.isSaved,
   };

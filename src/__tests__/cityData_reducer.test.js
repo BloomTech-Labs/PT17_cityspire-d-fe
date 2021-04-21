@@ -9,6 +9,7 @@ const initialState = {
   isFetching: false,
   error: '',
   city: {},
+  currentTemp: 0,
 };
 
 describe('cityDate reducer', () => {
@@ -29,9 +30,12 @@ describe('cityDate reducer', () => {
         type: FETCHING_CITY_SUCCESS,
         payload: {
           city: {
-            city: 'New York',
-            state: 'NY',
+            city: {
+              city: 'New York',
+              state: 'NY',
+            },
           },
+          temp: 99,
         },
       })
     ).toEqual({
@@ -42,6 +46,7 @@ describe('cityDate reducer', () => {
           state: 'NY',
         },
       },
+      currentTemp: 99,
     });
   });
   it('should handle FETCHING_CITY_ERROR', () => {
