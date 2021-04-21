@@ -10,7 +10,7 @@ export const fetchCityData = cityInfo => {
 
     try {
       const res = await axios.post(
-        'http://cityspire.us-east-1.elasticbeanstalk.com/api/get_data',
+        'http://job-test-dev2.eba-jmg4iwuq.us-east-1.elasticbeanstalk.com/#/',
         cityInfo
       );
 
