@@ -6,7 +6,6 @@ import { Input } from 'antd';
 
 import 'antd/dist/antd.css';
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default { title: 'Form Input', parameters: { notes: markdown } };
 
 export const exampleInput = () => (
