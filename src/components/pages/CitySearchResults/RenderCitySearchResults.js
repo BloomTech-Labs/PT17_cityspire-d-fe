@@ -120,6 +120,39 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Livability"
+              value={cityData.livability}
+              valueStyle={StatisticStyle}
+              prefix={<HomeTwoTone twoToneColor="orange" />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Bike friendly"
+              value={cityData.bikeability}
+              valueStyle={StatisticStyle}
+              prefix={<PieChartTwoTone twoToneColor="green" />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Bus for Tranportation"
+              value={cityData.busability}
+              valueStyle={StatisticStyle}
+              prefix={<CarTwoTone twoToneColor="yellow" />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
@@ -187,17 +220,6 @@ const RenderCitySearchResults = ({
               value={cityData.walkability}
               valueStyle={StatisticStyle}
               prefix={<SmileTwoTone />}
-              suffix="/ 100"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={8}>
-          <Card>
-            <Statistic
-              title="Livability"
-              value={cityData.livability}
-              valueStyle={StatisticStyle}
-              prefix={<HomeTwoTone twoToneColor="orange" />}
               suffix="/ 100"
             />
           </Card>

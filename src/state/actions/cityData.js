@@ -10,11 +10,11 @@ export const fetchCityData = cityInfo => {
 
     try {
       const cityData = axios.post(
-        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_data',
+        'http://job-test-dev2.eba-jmg4iwuq.us-east-1.elasticbeanstalk.com/api/get_data',
         cityInfo
       );
       const weatherData = axios.post(
-        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_current_temp',
+        'http://job-test-dev2.eba-jmg4iwuq.us-east-1.elasticbeanstalk.com/api/get_current_temp',
         cityInfo
       );
 
