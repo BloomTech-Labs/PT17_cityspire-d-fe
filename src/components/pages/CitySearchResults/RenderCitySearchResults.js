@@ -117,7 +117,7 @@ const RenderCitySearchResults = ({
               title="Current Temperature"
               value={currentTemp}
               valueStyle={StatisticStyle}
-              prefix={<CloudTwoTone twoToneColor="orange" />}
+              prefix={<CloudTwoTone />}
             />
           </Card>
         </Col>
