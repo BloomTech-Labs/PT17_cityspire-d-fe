@@ -55,55 +55,8 @@ const RenderCitySearchResults = ({
   cityData,
   handleSaveCity,
   handleOnCityClick,
+  currentTemp,
 }) => {
-  const weatherData = {
-    coord: {
-      lon: 13.4105,
-      lat: 52.5244,
-    },
-    weather: [
-      {
-        id: 803,
-        main: 'Clouds',
-        description: 'broken clouds',
-        icon: '04d',
-      },
-    ],
-    base: 'stations',
-    main: {
-      temp: 286.12,
-      feels_like: 285.01,
-      temp_min: 285.37,
-      temp_max: 287.04,
-      pressure: 1015,
-      humidity: 59,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 0.89,
-      deg: 257,
-      gust: 2.68,
-    },
-    rain: {
-      '1h': 0.1,
-    },
-    clouds: {
-      all: 78,
-    },
-    dt: 1617257117,
-    sys: {
-      type: 3,
-      id: 2011538,
-      country: 'DE',
-      sunrise: 1617252024,
-      sunset: 1617298781,
-    },
-    timezone: 7200,
-    id: 2950159,
-    name: 'Berlin',
-    cod: 200,
-  };
-
   const jobsData = {
     'Jobs Listed': 'number_jobs',
     'Job Title': 'job_title',
@@ -115,7 +68,6 @@ const RenderCitySearchResults = ({
     Salary: 'salary',
     'Job Url': 'job_url',
   };
-
   return (
     <>
       <Row
@@ -162,10 +114,43 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Weather"
-              value={weatherData.temp}
+              title="Current Temperature"
+              value={currentTemp}
               valueStyle={StatisticStyle}
               prefix={<CloudTwoTone twoToneColor="orange" />}
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Livability"
+              value={cityData.livability}
+              valueStyle={StatisticStyle}
+              prefix={<HomeTwoTone twoToneColor="orange" />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Bike friendly"
+              value={cityData.bikeability}
+              valueStyle={StatisticStyle}
+              prefix={<PieChartTwoTone twoToneColor="green" />}
+              suffix="/ 100"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card>
+            <Statistic
+              title="Bus for Tranportation"
+              value={cityData.busability}
+              valueStyle={StatisticStyle}
+              prefix={<CarTwoTone twoToneColor="yellow" />}
+              suffix="/ 100"
             />
           </Card>
         </Col>
@@ -246,27 +231,6 @@ const RenderCitySearchResults = ({
               value={cityData.walkability}
               valueStyle={StatisticStyle}
               prefix={<SmileTwoTone />}
-              suffix="/ 100"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title="Bikeability"
-              value={cityData.bikeability}
-              valueStyle={StatisticStyle}
-              prefix={<ProjectTwoTone twoToneColor="blue" />}
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={8}>
-          <Card>
-            <Statistic
-              title="Livability"
-              value={cityData.livability}
-              valueStyle={StatisticStyle}
-              prefix={<HomeTwoTone twoToneColor="orange" />}
               suffix="/ 100"
             />
           </Card>
