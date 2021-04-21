@@ -5,14 +5,14 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import 'antd/dist/antd.less';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { NotFoundPage } from './pages/NotFound';
-import { HomePage } from './pages/Home';
-import { LoginPage } from './pages/Login';
-import { config } from '../utils/oktaConfig';
-import { LoadingComponent } from './common';
-import { CitySearchResultsPage } from './pages/CitySearchResults';
-import { UserDashboardPage } from './pages/UserDashboard';
-import { PinnedCityPage } from './pages/PinnedCity';
+import { NotFoundPage } from './components/pages/NotFound';
+import { HomePage } from './components/pages/Home';
+import { LoginPage } from './components/pages/Login';
+import { config } from './utils/oktaConfig';
+import { LoadingComponent } from './components/common';
+import { CitySearchResultsPage } from './components/pages/CitySearchResults';
+import { UserDashboardPage } from './components/pages/UserDashboard';
+import { PinnedCityPage } from './components/pages/PinnedCity';
 
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
