@@ -17,7 +17,7 @@ const SearchStyle = {
   width: '55vw',
   minWidth: '24rem',
   maxWidth: '80rem',
-  padding: '1rem',
+  padding: '0.7rem',
 };
 
 const SearchForm = ({ fetchCityData }) => {
@@ -53,7 +53,7 @@ const SearchForm = ({ fetchCityData }) => {
         <div>
           <Search
             placeholder="Enter City and State i.e. New York, New York"
-            allowClearC
+            allowClear
             onSearch={() => onSubmit()}
             size="large"
             style={SearchStyle}

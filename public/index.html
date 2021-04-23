@@ -27,6 +27,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Cityspire</title>
+    <!-- Served to all users -->
+    <link rel="stylesheet" href="all.css" media="all" />
+    <!-- Served to screens that are at least 20em wide -->
+    <link rel="stylesheet" href="small.css" media="(min-width: 20em)" />
+    <!-- Served to screens that are at least 64em wide -->
+    <link rel="stylesheet" href="medium.css" media="(min-width: 64em)" />
+    <!-- Served to screens that are at least 90em wide -->
+    <link rel="stylesheet" href="large.css" media="(min-width: 90em)" />
+    <!-- Served to screens that are at least 120em wide -->
+    <link rel="stylesheet" href="extra-large.css" media="(min-width: 120em)" />
+    <!-- Served to print media, like printers -->
+    <link rel="stylesheet" href="print.css" media="print" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

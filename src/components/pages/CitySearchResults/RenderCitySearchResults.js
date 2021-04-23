@@ -58,16 +58,16 @@ const RenderCitySearchResults = ({
   currentTemp,
 }) => {
   const jobsData = {
-    'Jobs Listed': 'number_jobs',
     'Job Title': 'job_title',
     Company: 'company',
-    Location: 'job_location',
-    'Date Posted': 'post_date',
-    'Extract Date': 'extract_date',
-    Description: 'job_summary',
+    'Job Location': 'job_location',
+    'Post Date': 'post_date',
+    'Extraction Date': 'extract_date',
+    'Job Description': 'job_summary',
     Salary: 'salary',
     'Job Url': 'job_url',
   };
+  console.log(jobsData);
   return (
     <>
       <Row
@@ -157,8 +157,8 @@ const RenderCitySearchResults = ({
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Jobs"
-              value={jobsData.number_jobs}
+              title="Job Opportunities"
+              value={jobsData.main && jobsData.main.jobs}
               valueStyle={StatisticStyle}
               prefix={<ProjectTwoTone twoToneColor="blue" />}
             />

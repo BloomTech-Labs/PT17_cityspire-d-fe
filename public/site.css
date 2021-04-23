@@ -5,3 +5,10 @@
     left: 0;
     bottom: 0;
     }
+
+/* Viewports between 320px and 480px wide */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ant-space-item {
+    background: rgb(89, 70, 178);
+  }
+}

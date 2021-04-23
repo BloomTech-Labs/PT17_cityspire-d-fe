@@ -34,7 +34,7 @@ const UserDashboardContainer = ({
   const deleteNotification = () => {
     notification.open({
       message: 'City Removed',
-      description: `${cityAndState.city}, ${cityAndState.state} has been has been removed from Pinned Cities.`,
+      description: `${cityAndState.city}, ${cityAndState.state} has been removed from Pinned Cities.`,
     });
   };
 
