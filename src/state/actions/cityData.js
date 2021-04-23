@@ -17,24 +17,16 @@ export const fetchCityData = cityInfo => {
         'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_current_temp',
         cityInfo
       );
-      const jobsData = axios.post(
+      const job_opportunities = axios.post(
         'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/job_opportunities',
         cityInfo
       );
 
-      const [cityRes, weatherRes, jobRes] = await Promise.all([
-        cityData,
-        weatherData,
-        jobsData,
-      ]);
+      const [cityRes, weatherRes] = await Promise.all([cityData, weatherData]);
 
       dispatch({
         type: FETCHING_CITY_SUCCESS,
-        payload: {
-          city: cityRes.data,
-          temp: weatherRes.data,
-          job: jobRes.data,
-        },
+        payload: { city: cityRes.data, temp: weatherRes.data },
       });
     } catch (err) {
       dispatch({ type: FETCHING_CITY_ERROR, payload: err.detail });

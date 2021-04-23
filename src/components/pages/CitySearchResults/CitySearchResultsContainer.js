@@ -55,7 +55,7 @@ const CitySearchResultsContainer = ({
       latitude: cityData.latitude,
       longitude: cityData.longitude,
       profile_id: localStorage.getItem('token'),
-      job_opportunities: cityData.job_opportunities,
+      jobsData: cityData.jobsData,
     };
     pinCity(localStorage.getItem('token'), cityInfo);
     savedNotification();
