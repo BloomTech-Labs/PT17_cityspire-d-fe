@@ -56,18 +56,19 @@ const RenderCitySearchResults = ({
   handleSaveCity,
   handleOnCityClick,
   currentTemp,
+  job_opportunities,
 }) => {
   const jobsData = {
     'Job Title': 'job_title',
     Company: 'company',
-    'Job Location': 'job_location',
-    'Post Date': 'post_date',
-    'Extraction Date': 'extract_date',
-    'Job Description': 'job_summary',
+    Location: 'job_location',
+    'Date Posted': 'post_date',
+    'Extract Date': 'extract_date',
+    Description: 'job_summary',
     Salary: 'salary',
     'Job Url': 'job_url',
   };
-  console.log(jobsData);
+
   return (
     <>
       <Row
@@ -158,7 +159,7 @@ const RenderCitySearchResults = ({
           <Card>
             <Statistic
               title="Job Opportunities"
-              value={jobsData.main && jobsData.main.jobs}
+              value={jobsData}
               valueStyle={StatisticStyle}
               prefix={<ProjectTwoTone twoToneColor="blue" />}
             />
