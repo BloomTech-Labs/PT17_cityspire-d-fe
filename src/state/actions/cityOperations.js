@@ -6,7 +6,7 @@ export const FETCHING_CITIES_START = 'FETCHING_CITY_START';
 export const FETCHING_CITIES_SUCCESS = 'FETCHING_CITY_SUCCESS';
 export const FETCHING_CITIES_ERROR = 'FETCHING_CITY_ERROR';
 
-const url = 'https://labspt15-cityspire-g.herokuapp.com';
+const url = 'https://pt17-cityspire-d.herokuapp.com/';
 
 export const fetchSavedCity = profileId => {
   return async dispatch => {

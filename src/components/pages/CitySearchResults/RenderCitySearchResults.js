@@ -13,7 +13,6 @@ import {
 } from 'antd';
 
 import {
-  DashboardTwoTone,
   ProjectTwoTone,
   DollarCircleTwoTone,
   SafetyCertificateTwoTone,
@@ -56,19 +55,8 @@ const RenderCitySearchResults = ({
   handleSaveCity,
   handleOnCityClick,
   currentTemp,
-  job_opportunities,
+  currentPosition,
 }) => {
-  const jobsData = {
-    'Job Title': 'job_title',
-    Company: 'company',
-    Location: 'job_location',
-    'Date Posted': 'post_date',
-    'Extract Date': 'extract_date',
-    Description: 'job_summary',
-    Salary: 'salary',
-    'Job Url': 'job_url',
-  };
-
   return (
     <>
       <Row
@@ -84,7 +72,10 @@ const RenderCitySearchResults = ({
           <PageHeader style={{ marginLeft: '-1.5rem' }}>
             <h1 style={{ fontSize: '1.5rem' }}>
               <EnvironmentFilled
-                style={{ marginRight: '.5rem', color: 'rgb(24, 144, 255)' }}
+                style={{
+                  marginRight: '.5rem',
+                  color: 'rgb(24, 144, 255)',
+                }}
               />
               {cityData.city
                 ? `${cityData.city.city}, ${cityData.city.state}`
@@ -122,14 +113,13 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8}>
+        <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Livability"
-              value={cityData.livability}
+              title="Job Opportunities"
+              value={currentPosition}
               valueStyle={StatisticStyle}
-              prefix={<HomeTwoTone twoToneColor="orange" />}
-              suffix="/ 100"
+              prefix={<ProjectTwoTone twoToneColor="blue" />}
             />
           </Card>
         </Col>
@@ -152,16 +142,6 @@ const RenderCitySearchResults = ({
               valueStyle={StatisticStyle}
               prefix={<CarTwoTone twoToneColor="yellow" />}
               suffix="/ 100"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title="Job Opportunities"
-              value={jobsData}
-              valueStyle={StatisticStyle}
-              prefix={<ProjectTwoTone twoToneColor="blue" />}
             />
           </Card>
         </Col>
@@ -215,16 +195,6 @@ const RenderCitySearchResults = ({
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title="Busability"
-              value={cityData.busability}
-              valueStyle={StatisticStyle}
-              prefix={<DashboardTwoTone twoToneColor="green" />}
-            />
-          </Card>
-        </Col>
         <Col xs={24} sm={12} md={8}>
           <Card>
             <Statistic
@@ -233,16 +203,6 @@ const RenderCitySearchResults = ({
               valueStyle={StatisticStyle}
               prefix={<SmileTwoTone />}
               suffix="/ 100"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title="Bikeability"
-              value={cityData.bikeability}
-              valueStyle={StatisticStyle}
-              prefix={<ProjectTwoTone twoToneColor="blue" />}
             />
           </Card>
         </Col>

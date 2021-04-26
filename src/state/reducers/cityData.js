@@ -9,6 +9,7 @@ const initialState = {
   error: '',
   city: {},
   currentTemp: 0,
+  position: {},
 };
 export const cityDataReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,6 +24,7 @@ export const cityDataReducer = (state = initialState, action) => {
         isFetching: false,
         city: action.payload.city,
         currentTemp: action.payload.temp,
+        position: action.payload.position,
         error: '',
       };
     case FETCHING_CITY_ERROR:

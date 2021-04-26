@@ -10,18 +10,18 @@ export const fetchCityData = cityInfo => {
 
     try {
       const cityData = axios.post(
-        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_data',
+        'https://d-ds-rev2.cityspire.dev/api/get_data',
         cityInfo
       );
       const weatherData = axios.post(
-        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/get_current_temp',
+        'https://d-ds-rev2.cityspire.dev/api/get_current_temp',
         cityInfo
       );
-      const job_opportunities = axios.post(
-        'http://cityspiredsv2.eba-tzegycpr.us-east-1.elasticbeanstalk.com/api/job_opportunities',
+      const positionData = axios.post(
+        'https://d-ds-rev2.cityspire.dev/api/job_opportunities',
         cityInfo
       );
-
+      console.log(positionData);
       const [cityRes, weatherRes] = await Promise.all([cityData, weatherData]);
 
       dispatch({

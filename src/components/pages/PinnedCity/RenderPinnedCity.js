@@ -1,9 +1,10 @@
 import React from 'react';
 import { MapboxGLMap } from '../../common';
 
-import { Statistic, Row, Col, Card, PageHeader, Button } from 'antd';
+import { Statistic, Row, Col, Card, PageHeader, Button, Image } from 'antd';
 
 import {
+  ProjectTwoTone,
   DollarCircleTwoTone,
   SafetyCertificateTwoTone,
   SmileTwoTone,
@@ -11,8 +12,10 @@ import {
   CarTwoTone,
   GoldTwoTone,
   PieChartTwoTone,
+  ThunderboltTwoTone,
   PushpinFilled,
   EnvironmentFilled,
+  CloudTwoTone,
 } from '@ant-design/icons';
 
 const StatisticStyle = {
@@ -25,11 +28,28 @@ const RowStyle = {
   maxWidth: '1366px',
 };
 
-const RenderPinnedCities = ({ savedCities, handleRemoveCity }) => {
+const RenderPinnedCities = ({
+  savedCities,
+  handleRemoveCity,
+  cityData,
+  handleSaveCity,
+  handleOnCityClick,
+  currentTemp,
+  currentPosition,
+}) => {
   return (
     <>
+      <Row
+        style={{
+          padding: '.25rem 5vw',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: 'ghostwhite',
+        }}
+      ></Row>
       {savedCities.map(data => (
-        <div key={`${data.city.city}-${data.city.state}`}>
+        <div key={`${data.city.city}, ${data.city.state}`}>
           <div>
             <Row
               style={{
@@ -72,6 +92,48 @@ const RenderPinnedCities = ({ savedCities, handleRemoveCity }) => {
             <Row style={RowStyle} wrap="true">
               <Col xs={24}>
                 <h2>Cityspire City Data</h2>
+              </Col>
+              <Col xs={24} sm={12} md={6}>
+                <Card>
+                  <Statistic
+                    title="Curent Temperature"
+                    value={currentTemp}
+                    valueStyle={StatisticStyle}
+                    prefix={<CloudTwoTone twoToneColor="orange" />}
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={6}>
+                <Card>
+                  <Statistic
+                    title="Job Opportunities"
+                    value={data.currentPosition}
+                    valueStyle={StatisticStyle}
+                    prefix={<ProjectTwoTone twoToneColor="blue" />}
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card>
+                  <Statistic
+                    title="Bike friendly"
+                    value={data.bikeability}
+                    valueStyle={StatisticStyle}
+                    prefix={<PieChartTwoTone twoToneColor="green" />}
+                    suffix="/ 100"
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card>
+                  <Statistic
+                    title="Bus for Tranportation"
+                    value={data.busability}
+                    valueStyle={StatisticStyle}
+                    prefix={<CarTwoTone twoToneColor="yellow" />}
+                    suffix="/ 100"
+                  />
+                </Card>
               </Col>
               <Col xs={24} sm={12} md={6}>
                 <Card>

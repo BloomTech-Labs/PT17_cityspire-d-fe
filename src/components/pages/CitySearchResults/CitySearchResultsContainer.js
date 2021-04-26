@@ -22,7 +22,7 @@ const CitySearchResultsContainer = ({
   isFetching,
   isSaved,
   currentTemp,
-  job_opportunities,
+  currentPosition,
 }) => {
   const { push } = useHistory();
 
@@ -55,7 +55,7 @@ const CitySearchResultsContainer = ({
       latitude: cityData.latitude,
       longitude: cityData.longitude,
       profile_id: localStorage.getItem('token'),
-      jobsData: cityData.jobsData,
+      currentPosition: cityData.position,
     };
     pinCity(localStorage.getItem('token'), cityInfo);
     savedNotification();
@@ -81,7 +81,7 @@ const CitySearchResultsContainer = ({
           <RenderCitySearchResults
             cityData={cityData}
             currentTemp={currentTemp}
-            job_opportunities={job_opportunities}
+            currentPosition={currentPosition}
             handleSaveCity={handleSaveCity}
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
@@ -101,7 +101,7 @@ const mapStateToProps = state => {
     error: state.cityData.error,
     cityData: state.cityData.city,
     currentTemp: state.cityData.currentTemp,
-    job_opportunities: state.cityData.job_opportunities,
+    currentPosition: state.cityData.currentPosition,
     savedCities: state.cityOperations.savedCities,
     isSaved: state.cityOperations.isSaved,
   };
