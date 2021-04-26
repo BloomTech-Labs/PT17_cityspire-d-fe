@@ -9,7 +9,6 @@ const initialState = {
   error: '',
   city: {},
   currentTemp: 0,
-  position: {},
 };
 export const cityDataReducer = (state = initialState, action) => {
   switch (action.type) {
