@@ -31,11 +31,10 @@ const handleOnCityClick = cityAndState => {
 
 # Validation for the SearchBar component
 
-Right now you have to enter specifically city, state initials ex. New York, NY (any rendition lowercase, capitalize or uppercase) in the search bar.
+Right now you have to enter specifically city, state initials ex. New York, New York (any rendition lowercase, capitalize or uppercase) in the search bar.
 
 ### No data would return
 
-- If you entered the state spelled out (ex. Miami)
 - If the user search for a city that does not exists
 - If there is a typo
 
